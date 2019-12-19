@@ -1,5 +1,5 @@
 //扩大可点击区域
-const extendClick = () => {
+const extend_click = () => {
   return `
     position: relative;
     &:before{
@@ -11,7 +11,7 @@ const extendClick = () => {
 };
 
 //一行文字溢出部分用...代替
-const noWrap = () => {
+const no_wrap = () => {
   return `
     text-overflow: ellipsis;
     overflow: hidden;
@@ -20,20 +20,23 @@ const noWrap = () => {
 };
 
 export default {
-  'theme-color': '#d44439',
-  'theme-color-shadow': 'rgba(212, 68, 57, .5)',
-  'font-color-light': '#f1f1f1',
-  'font-color-desc': '#2E3030',
-  'font-color-desc-v2': '#bba8a8',//略淡
-  'font-size-ss': '10px',
-  'font-size-s': '12px',
-  'font-size-m': '14px',
-  'font-size-l': '16px',
-  'font-size-ll': '18px',
-  "border-color": '#e4e4e4',
-  'background-color': '#f2f3f4',
-  'background-color-shadow': 'rgba(0, 0, 0, 0.3)',
-  'highlight-background-color': '#fff',
-  extendClick,
-  noWrap
+  // var
+  theme_color: '#d44439',
+  theme_color_shadow: 'rgba(212, 68, 57, .5)',
+  font_color_light: '#f1f1f1',
+  font_color_desc: '#2E3030',
+  font_color_desc_v2: '#bba8a8',//略淡
+  font_size_ss: '10px',
+  font_size_s: '12px',
+  font_size_m: '14px',
+  font_size_l: '16px',
+  font_size_ll: '18px',
+  border_color: '#e4e4e4',
+  background_color: '#f2f3f4',
+  background_color_shadow: 'rgba(0, 0, 0, 0.3)',
+  highlight_background_color: '#fff',
+
+  // function
+  extend_click,
+  no_wrap
 };
