@@ -23,6 +23,7 @@ export default {
   // var
   theme_color: '#d44439',
   theme_color_shadow: 'rgba(212, 68, 57, .5)',
+  font_color: '#2E3030',
   font_color_light: '#f1f1f1',
   font_color_desc: '#2E3030',
   font_color_desc_v2: '#bba8a8',//略淡
