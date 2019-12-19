@@ -22,7 +22,12 @@
       "dom.iterable",
       "esnext",
       "scripthost"
-    ]
+    ],
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
   },
   "exclude": [
     "node_modules"
