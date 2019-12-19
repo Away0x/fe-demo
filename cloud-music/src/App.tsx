@@ -1,16 +1,24 @@
 import React from 'react';
+import { HashRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import { Provider } from 'react-redux';
 
-import { GlobalStyle } from '@/assets/style/style';
+import { GlobalStyle } from '@/assets/style/global';
 import { IconStyle } from '@/assets/iconfont/iconfont';
+import routes from './routes';
+import store from '@/store';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <GlobalStyle />
-      <IconStyle />
+    <Provider store={store}>
+      <HashRouter>
+        {/* 通用样式 */}
+        <GlobalStyle />
+        <IconStyle />
 
-      <i className="iconfont">&#xe62b;</i>
-    </div>
+        { renderRoutes(routes) }
+      </HashRouter>
+    </Provider>
   );
 }
 
