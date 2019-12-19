@@ -30,7 +30,7 @@ const Slider: React.FC<SliderProps> = ({ bannerList }) => {
       <div className="slider-container">
         <div className="swiper-wrapper">
           {
-            bannerList.map ((slider, i) => {
+            bannerList.map((slider, i) => {
               return (
                 <div className="swiper-slide" key={slider.imageUrl + i}>
                   <div className="slider-nav">

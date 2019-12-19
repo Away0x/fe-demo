@@ -2,6 +2,8 @@ import React from 'react';
 import Slider from '@/components/Slider';
 
 import RecommendList from './list';
+import { Content } from './index.style';
+import Scroll from '@/components/Scroll';
 
 const bannerList = [1, 2, 3, 4].map(_ => {
   return { imageUrl: 'http://p1.music.126.net/ZYLJ2oZn74yUz5x8NBGkVA==/109951164331219056.jpg' }
@@ -18,10 +20,14 @@ const recommendList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(_ => {
 
 const Recommend: React.FC = () => {
   return (
-    <div>
-      <Slider bannerList={bannerList} />
-      <RecommendList recommendList={recommendList} />
-    </div>
+    <Content>
+      <Scroll>
+        <div>
+          <Slider bannerList={bannerList} />
+          <RecommendList recommendList={recommendList} />
+        </div>
+      </Scroll>
+    </Content>
   )
 };
 

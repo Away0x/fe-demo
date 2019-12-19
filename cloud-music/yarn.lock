@@ -961,6 +961,74 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@better-scroll/core@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.npmjs.org/@better-scroll/core/-/core-2.0.0-beta.2.tgz#72c4da63a543671ef7b19c97c3d86b226643b65e"
+  integrity sha512-+gkRJ+5fnkl6y6rA8MB0D3vzLlvKuAlJwY6+oTB5xVYMx5qj4fa0/ZuIteBt4rSnT4GkKe8X3ejb+/wgh7aAJA==
+  dependencies:
+    "@better-scroll/shared-utils" "^2.0.0-beta.2"
+
+"@better-scroll/mouse-wheel@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.npmjs.org/@better-scroll/mouse-wheel/-/mouse-wheel-2.0.0-beta.2.tgz#f4959daa14c7c823b4219ebead05eda74554a12e"
+  integrity sha512-tHPKWjzlYV2j6uF6MWJDZhQp5i8zWR5PhnKUT4rPomwYQWkuzksCsQqC5GRcvzHrIsgwD0zHJ6PzudUGp9KMrw==
+  dependencies:
+    "@better-scroll/core" "^2.0.0-beta.2"
+
+"@better-scroll/observe-dom@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.npmjs.org/@better-scroll/observe-dom/-/observe-dom-2.0.0-beta.2.tgz#ce8d51b44c4bc9c73251e8d1caaae05cd1d1b64c"
+  integrity sha512-Y2I+rsY2LQvP0OW2HGctDLp4V7Aal50511oDb7uwwFs/1uVYnF5klw1kAIdnXrAV+w9UeH5NhYv7yBMgWAp7Sw==
+  dependencies:
+    "@better-scroll/core" "^2.0.0-beta.2"
+
+"@better-scroll/pull-down@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.npmjs.org/@better-scroll/pull-down/-/pull-down-2.0.0-beta.2.tgz#4e5c30df49d8717a8b240b98c005b8b1ad5fa8a6"
+  integrity sha512-sd+0NTc1zsekXl0uJIQ54HZoIf7HyCbZDk67zIWsvoEa8sOS30kd9Lvkcd2YgAhczZQnUorarLj53TytxJwT2A==
+  dependencies:
+    "@better-scroll/core" "^2.0.0-beta.2"
+
+"@better-scroll/pull-up@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.npmjs.org/@better-scroll/pull-up/-/pull-up-2.0.0-beta.2.tgz#a352a97e328d803ed3a19b711c9acb35c977fadc"
+  integrity sha512-h5rhV1ziD7TAkzS+WhfXdEuANwEkABkJl7z3mwhnCR/1BPz+xm4G6hZL1gEPvV/OfmlA46UNm83WNP1NdIXA2A==
+  dependencies:
+    "@better-scroll/core" "^2.0.0-beta.2"
+
+"@better-scroll/scroll-bar@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.npmjs.org/@better-scroll/scroll-bar/-/scroll-bar-2.0.0-beta.2.tgz#397fbf47d5252982e78015bcd7ec4c8d94c610af"
+  integrity sha512-+FFonNTKOYALlgzWnMiwqfSpHsOGd9kxBl5j2+ufnGkogHHp25dF/iz2FPeOby2kYfymNambOl3tKvAXL8Vxbw==
+  dependencies:
+    "@better-scroll/core" "^2.0.0-beta.2"
+
+"@better-scroll/shared-utils@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.npmjs.org/@better-scroll/shared-utils/-/shared-utils-2.0.0-beta.2.tgz#1714d5e46eb47f03ce293f620672e84d5cdb6ca9"
+  integrity sha512-iJT5krGpE3L5ZS6TYo5xqjpxbR3gub3cCD2cmgvFdCiKwXxqeTZdldt4/OCNxk2qwvYfv9ojyqzv7ENCxziLiA==
+
+"@better-scroll/slide@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.npmjs.org/@better-scroll/slide/-/slide-2.0.0-beta.2.tgz#7faa066b267a6cc7c306a464053d983432f9c31f"
+  integrity sha512-R31B6l1SMTbLfEkibi67ZV0vqrCJBMCv30CJCD2vtG1RHwaOZlUF11ZOsHFbhdSvYPG8XspAHBYWDfptiQIzcQ==
+  dependencies:
+    "@better-scroll/core" "^2.0.0-beta.2"
+
+"@better-scroll/wheel@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.npmjs.org/@better-scroll/wheel/-/wheel-2.0.0-beta.2.tgz#a3365b5f21a4a54172a66b96bd4c7412707c889c"
+  integrity sha512-jmOMZ7E+XKM1I6dyrOmO9Lggzmx3bT6Q3bl5qnbPz/to+1ayU5UjU9Ey4ggMq37uYQtJ9VD9NcEm/W9yTuRlFA==
+  dependencies:
+    "@better-scroll/core" "^2.0.0-beta.2"
+
+"@better-scroll/zoom@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.npmjs.org/@better-scroll/zoom/-/zoom-2.0.0-beta.2.tgz#8561ad0ebdd346da1a39e772d7f6adbc58160413"
+  integrity sha512-1k4dvcDwBnsdI8SrtNZGAELU82Z5miPegKIdVEui18wCgu5nrXsUt3QlqjUz0dQ3Wd8XRiYtTHowajXRBsghUw==
+  dependencies:
+    "@better-scroll/core" "^2.0.0-beta.2"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.npmjs.org/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
@@ -2128,6 +2196,14 @@ aws4@^1.8.0:
   resolved "https://registry.npmjs.org/aws4/-/aws4-1.9.0.tgz#24390e6ad61386b0a747265754d2a17219de862c"
   integrity sha512-Uvq6hVe90D0B2WEnUqtdgY1bATGz3mw33nH9Y+dmA+w5DHvUmBgkr5rM/KCHpCsiFNRUfokW/szpPPgMK2hm4A==
 
+axios@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.npmjs.org/axios/-/axios-0.19.0.tgz#8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8"
+  integrity sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==
+  dependencies:
+    follow-redirects "1.5.10"
+    is-buffer "^2.0.2"
+
 axobject-query@^2.0.2:
   version "2.1.1"
   resolved "https://registry.npmjs.org/axobject-query/-/axobject-query-2.1.1.tgz#2a3b1271ec722d48a4cd4b3fcc20c853326a49a7"
@@ -2338,6 +2414,21 @@ bcrypt-pbkdf@^1.0.0:
   integrity sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
   dependencies:
     tweetnacl "^0.14.3"
+
+better-scroll@^2.0.0-beta.2:
+  version "2.0.0-beta.2"
+  resolved "https://registry.npmjs.org/better-scroll/-/better-scroll-2.0.0-beta.2.tgz#49145c1af606f2ec61e3d3730daea0bf5ad2b410"
+  integrity sha512-wmSpie7D4tsCgadVBCXjyao0+WMtlO1qF/PaIl3Guh723seAqZi1kBYFJ1vjzELgeDr/aFdXXNscuQZJCuqNNA==
+  dependencies:
+    "@better-scroll/core" "^2.0.0-beta.2"
+    "@better-scroll/mouse-wheel" "^2.0.0-beta.2"
+    "@better-scroll/observe-dom" "^2.0.0-beta.2"
+    "@better-scroll/pull-down" "^2.0.0-beta.2"
+    "@better-scroll/pull-up" "^2.0.0-beta.2"
+    "@better-scroll/scroll-bar" "^2.0.0-beta.2"
+    "@better-scroll/slide" "^2.0.0-beta.2"
+    "@better-scroll/wheel" "^2.0.0-beta.2"
+    "@better-scroll/zoom" "^2.0.0-beta.2"
 
 big.js@^5.2.2:
   version "5.2.2"
@@ -3456,6 +3547,13 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   dependencies:
     ms "2.0.0"
 
+debug@=3.1.0:
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
+  dependencies:
+    ms "2.0.0"
+
 debug@^3.0.0, debug@^3.1.1, debug@^3.2.5:
   version "3.2.6"
   resolved "https://registry.npmjs.org/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
@@ -4496,6 +4594,13 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
+follow-redirects@1.5.10:
+  version "1.5.10"
+  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
+  dependencies:
+    debug "=3.1.0"
+
 follow-redirects@^1.0.0:
   version "1.9.0"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.9.0.tgz#8d5bcdc65b7108fe1508649c79c12d732dcedb4f"
@@ -5348,6 +5453,11 @@ is-buffer@^1.0.2, is-buffer@^1.1.5:
   version "1.1.6"
   resolved "https://registry.npmjs.org/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
   integrity sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==
+
+is-buffer@^2.0.2:
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/is-buffer/-/is-buffer-2.0.4.tgz#3e572f23c8411a5cfd9557c849e3665e0b290623"
+  integrity sha512-Kq1rokWXOPXWuaMAqZiJW4XxsmD9zGx9q4aePabbn3qCRGedtH7Cm+zV8WETitMfu1wdh+Rvd6w5egwSngUX2A==
 
 is-callable@^1.1.4:
   version "1.1.4"
