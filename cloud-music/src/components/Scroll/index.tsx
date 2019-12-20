@@ -8,7 +8,6 @@ import React, {
 } from 'react';
 import BScroll from 'better-scroll';
 
-import { withDefaultProps } from '@/utils/ts-enhance';
 import { debounce } from '@/utils';
 import {
   ScrollContainer,
@@ -17,36 +16,49 @@ import {
 } from './index.style';
 
 interface ScrollProps {
-  direction: 'vertical' | 'horizental'; // 滚动的方向
-  click: boolean;                       // 是否支持点击
-  refresh: boolean;                     // 是否刷新
-  onScroll: Function | null;            // 滑动触发的回调函数
-  pullUp: Function;                     // 上拉加载逻辑
-  pullDown: Function;                   // 下拉加载逻辑
-  pullUpLoading: boolean;               // 是否显示上拉 loading 动画
-  pullDownLoading: boolean;             // 是否显示下拉 loading 动画
-  bounceTop: boolean;                   // 是否支持向上吸顶
-  bounceBottom: boolean;                // 是否支持向下吸底
+  direction?: 'vertical' | 'horizental'; // 滚动的方向
+  click?: boolean;                       // 是否支持点击
+  refresh?: boolean;                     // 是否刷新
+  pullUpLoading?: boolean;               // 是否显示上拉 loading 动画
+  pullDownLoading?: boolean;             // 是否显示下拉 loading 动画
+  bounceTop?: boolean;                   // 是否支持向上吸顶
+  bounceBottom?: boolean;                // 是否支持向下吸底
+  onScroll?: Function;                   // 滑动触发的回调函数
+  pullUp?: Function;                     // 上拉加载逻辑
+  pullDown?: Function;                   // 下拉加载逻辑
+
+  children: React.ReactNode;
 }
 
-interface ScrollerHandlers {
+export interface ScrollerHandlers {
   refresh(): void
   getBScroll(): BScroll | undefined
 }
 
 const Scroll = forwardRef<ScrollerHandlers, ScrollProps>(({
   children,
-  direction, click, refresh, bounceTop, bounceBottom,
-  pullUp, pullDown, onScroll, pullUpLoading, pullDownLoading,
+
+  direction = 'vertical',
+  click = true,
+  refresh = true,
+  bounceTop = true,
+  bounceBottom = true,
+  pullUpLoading = false,
+  pullDownLoading = false,
+  onScroll,
+  pullUp,
+  pullDown,
 }, ref) => {
   const scrollContaninerRef = useRef<any>();
   const [bScroll, setBScroll] = useState<BScroll | null>(null);
 
   const pullUpDebounce = useMemo(() => {
+    if (!pullUp) return;
     return debounce(pullUp, 300)
   }, [pullUp]);
 
   const pullDownDebounce = useMemo(() => {
+    if (!pullDown) return;
     return debounce(pullDown, 300)
   }, [pullDown]);
 
@@ -85,7 +97,7 @@ const Scroll = forwardRef<ScrollerHandlers, ScrollProps>(({
     bScroll.on('scrollEnd', () => {
       // 判断是否滑动到了底部
       if (bScroll.y <= bScroll.maxScrollY + 100) {
-        pullUpDebounce();
+        pullUpDebounce && pullUpDebounce();
       }
     });
 
@@ -100,7 +112,7 @@ const Scroll = forwardRef<ScrollerHandlers, ScrollProps>(({
     bScroll.on('touchEnd', (pos: any) => {
       //判断用户的下拉动作
       if (pos.y > 50) {
-        pullDownDebounce();
+        pullDownDebounce && pullDownDebounce();
       }
     });
 
@@ -147,16 +159,4 @@ const Scroll = forwardRef<ScrollerHandlers, ScrollProps>(({
   )
 });
 
-export default withDefaultProps<ScrollProps>({
-  direction: "vertical",
-  click: true,
-  refresh: true,
-  onScroll: null,
-  pullUpLoading: false,
-  pullDownLoading: false,
-  bounceTop: true,
-  bounceBottom: true,
-}, Scroll);
-
-// TODO: styled-components ref 的 type
-// withDefaultProps 导出的组件，无法设置 className
+export default Scroll;

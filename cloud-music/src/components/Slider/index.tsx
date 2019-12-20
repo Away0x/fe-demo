@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'swiper/css/swiper.css';
 import Swiper from 'swiper';
 
+import { BannerListItem } from '@/interfaces';
 import { SliderContainer } from './index.style';
 
 const createSlider = () => new Swiper('.slider-container', {
@@ -11,9 +12,7 @@ const createSlider = () => new Swiper('.slider-container', {
 });
 
 interface SliderProps {
-  bannerList: {
-    imageUrl: string,
-  }[]
+  bannerList: BannerListItem[]
 }
 
 const Slider: React.FC<SliderProps> = ({ bannerList }) => {
