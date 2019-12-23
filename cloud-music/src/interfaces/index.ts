@@ -1,4 +1,3 @@
-
 export interface BannerListItem {
   imageUrl: string;
 }
@@ -18,4 +17,9 @@ export interface BannerRequestResp {
 export interface RecommendListRequestResp {
   result: RecommendListItem[];
   code: number;
+}
+
+export interface HorizenItem {
+  key: string;
+  name: string;
 }
