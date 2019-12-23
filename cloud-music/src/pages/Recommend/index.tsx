@@ -14,11 +14,12 @@ import RecommendList from './list';
 import { Content } from './index.style';
 
 const Recommend: React.FC = () => {
+  const dispatch = useDispatch();
+
   const bannerList = useSelector((state: RootState) => state.recommend.bannerList || []);
   const recommendList = useSelector((state: RootState) => state.recommend.recommendList || []);
   const enterLoading = useSelector((state: RootState) => state.recommend.enterLoading);
 
-  const dispatch = useDispatch();
   const getBannerDataDispatch = useCallback(() => dispatch(getBannerList()), [dispatch]);
   const getRecommendListDataDispatch = useCallback(() => dispatch(getRecommendList()), [dispatch]);
 

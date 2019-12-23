@@ -9,6 +9,9 @@ import React, {
 import BScroll from 'better-scroll';
 
 import { debounce } from '@/utils';
+import Loading from '@/components/Loading';
+import LoadingV2 from '@/components/Loading/v2';
+
 import {
   ScrollContainer,
   PullUpLoading,
@@ -54,12 +57,13 @@ const Scroll = forwardRef<ScrollerHandlers, ScrollProps>(({
 
   const pullUpDebounce = useMemo(() => {
     if (!pullUp) return;
-    return debounce(pullUp, 300)
+    return debounce(pullUp, 300);
+    // deps 不能省略，不然拿到的始终是第一次 pullUp 函数的引用，相应的闭包作用域变量都是第一次的，产生闭包陷阱
   }, [pullUp]);
 
   const pullDownDebounce = useMemo(() => {
     if (!pullDown) return;
-    return debounce(pullDown, 300)
+    return debounce(pullDown, 300);
   }, [pullDown]);
 
   // 创建 better-scroll
@@ -149,11 +153,11 @@ const Scroll = forwardRef<ScrollerHandlers, ScrollProps>(({
       {children}
       {/* 滑到底部加载动画 */}
       <PullUpLoading style={PullUpdisplayStyle}>
-        {/* <Loading /> */}
+        <Loading />
       </PullUpLoading>
       {/* 顶部下拉刷新动画 */}
       <PullDownLoading style={PullDowndisplayStyle}>
-        {/* <LoadingV2 /> */}
+        <LoadingV2 />
       </PullDownLoading>
     </ScrollContainer>
   )

@@ -8,3 +8,12 @@ export const NavContainer = styled.div`
   padding: 5px;
   overflow: hidden;
 `;
+
+export const ListContainer = styled.div`
+  position: fixed;
+  top: 160px;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%;
+`;

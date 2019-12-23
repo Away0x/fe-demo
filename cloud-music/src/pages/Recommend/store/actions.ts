@@ -1,8 +1,7 @@
-import { Dispatch } from 'redux';
-
 import {
   BannerListItem,
   RecommendListItem,
+  AsyncAction,
 } from '@/interfaces'
 import * as actionTypes from './action-types';
 import {
@@ -10,9 +9,13 @@ import {
   ChangeRecommendListAction,
   ChangeEnterLoadingAction,
 } from './types';
-import { getBannerRequest, getRecommendListRequest } from '@/services';
+import {
+  getBannerRequest,
+  getRecommendListRequest,
+} from '@/services';
+import { RootState } from '@/store';
 
-export const changeBannerList = (payload: any[]): ChangeBannerListAction => ({
+export const changeBannerList = (payload: BannerListItem[]): ChangeBannerListAction => ({
   type: actionTypes.CHANGE_BANNER,
   payload,
 });
@@ -27,8 +30,11 @@ export const changeEnterLoading = (payload: boolean): ChangeEnterLoadingAction =
   payload,
 });
 
-export const getBannerList = () => {
-  return (dispatch: Dispatch<ChangeBannerListAction>) => {
+export const getBannerList = (): AsyncAction<
+  RootState,
+  ChangeBannerListAction
+> => {
+  return (dispatch) => {
     getBannerRequest().then((data: BannerListItem[]) => {
       dispatch(changeBannerList(data));
     }).catch(() => {
@@ -37,8 +43,11 @@ export const getBannerList = () => {
   }
 };
 
-export const getRecommendList = () => {
-  return (dispatch: Dispatch<ChangeRecommendListAction | ChangeEnterLoadingAction>) => {
+export const getRecommendList = (): AsyncAction<
+  RootState,
+  ChangeRecommendListAction | ChangeEnterLoadingAction
+> => {
+  return (dispatch) => {
     getRecommendListRequest().then((data: RecommendListItem[]) => {
       dispatch(changeRecommendList(data));
       dispatch(changeEnterLoading(false)); // 改变 loading
