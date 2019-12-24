@@ -21,3 +21,6 @@ export const debounce = (func: Function, delay: number) => {
     }, delay);
   }
 };
+
+// 判断一个对象是否为空
+export const isEmptyObject = (obj: object) => !obj || Object.keys(obj).length === 0;

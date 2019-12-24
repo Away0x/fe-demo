@@ -68,3 +68,31 @@ export interface RankListItem {
 export interface RankListRequestResp {
   list: RankListItem[];
 }
+
+/** album creator */
+export interface AlbumCreator {
+  avatarUrl: string;
+  nickname: string;
+}
+
+/** album track */
+export interface AlbumTrack {
+  name: string;
+  ar: {name: string}[];
+  al: {name: string},
+}
+
+/** album item */
+export interface AlbumListItem {
+  name: string;
+  coverImgUrl: string;
+  subscribedCount: number;
+  creator: AlbumCreator;
+  tracks: AlbumTrack[];
+}
+
+/** 获取榜单详情列表的请求响应类型 */
+export interface AlbumListRequestResp {
+  playlist: AlbumListItem;
+  code: number;
+}

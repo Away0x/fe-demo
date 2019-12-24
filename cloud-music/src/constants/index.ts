@@ -1,5 +1,8 @@
 import { HorizenItem } from '@/interfaces';
 
+// 顶部的高度
+export const HEADER_HEIGHT = 45;
+
 // 歌手种类
 export const categoryTypes: HorizenItem[] = [
   {
