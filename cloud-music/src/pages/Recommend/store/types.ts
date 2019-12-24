@@ -1,15 +1,15 @@
 import * as actionTypes from './action-types';
-import { RecommendListItem } from '@/interfaces';
+import { RecommendListItem, BannerListItem } from '@/interfaces';
 
 export interface RecommendState {
-  bannerList: any[];
+  bannerList: BannerListItem[];
   recommendList: RecommendListItem[];
   enterLoading: boolean;
 }
 
 export interface ChangeBannerListAction {
   type: typeof actionTypes.CHANGE_BANNER;
-  payload: any[];
+  payload: BannerListItem[];
 }
 
 export interface ChangeRecommendListAction {

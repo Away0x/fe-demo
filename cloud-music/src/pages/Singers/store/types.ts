@@ -3,10 +3,10 @@ import { SingerListItem } from '@/interfaces';
 
 export interface SingersState {
   singerList: SingerListItem[]; // 歌手列表
-  enterLoading: boolean; // 控制进场 Loading
-  pullUpLoading: boolean; // 控制上拉加载动画
-  pullDownLoading: boolean; // 控制下拉加载动画
-  pageCount: number; // 分页 count
+  enterLoading: boolean;        // 控制进场 Loading
+  pullUpLoading: boolean;       // 控制上拉加载动画
+  pullDownLoading: boolean;     // 控制下拉加载动画
+  pageCount: number;            // 分页 count
 }
 
 export interface ChangeSingerListAction {

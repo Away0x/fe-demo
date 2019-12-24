@@ -4,7 +4,7 @@ import {
   getHotSingerListRequest,
   getSingerListRequest,
 } from '@/services';
-import { AsyncAction } from '@/interfaces';
+import { AsyncAction, SingerListItem } from '@/interfaces';
 import {
   ChangeSingerListAction,
   ChangePageCountAction,
@@ -13,32 +13,32 @@ import {
   ChangePullDownLoadingAction,
 } from './types';
 
-const changeSingerList = (payload: any[]): ChangeSingerListAction => ({
+const changeSingerList = (payload: SingerListItem[]): ChangeSingerListAction => ({
   type: actionTypes.CHANGE_SINGER_LIST,
   payload,
 });
 
 export const changePageCount = (payload: number): ChangePageCountAction => ({
   type: actionTypes.CHANGE_PAGE_COUNT,
-  payload
+  payload,
 });
 
 // 进场 loading
 export const changeEnterLoading = (payload: boolean): ChangeEnterLoadingAction => ({
   type: actionTypes.CHANGE_ENTER_LOADING,
-  payload
+  payload,
 });
 
 // 滑动最底部 loading
 export const changePullUpLoading = (payload: boolean): ChangePullUpLoadingAction => ({
   type: actionTypes.CHANGE_PULLUP_LOADING,
-  payload
+  payload,
 });
 
 // 顶部下拉刷新 loading
 export const changePullDownLoading = (payload: boolean): ChangePullDownLoadingAction => ({
   type: actionTypes.CHANGE_PULLDOWN_LOADING,
-  payload
+  payload,
 });
 
 // 第一次加载热门歌手

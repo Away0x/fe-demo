@@ -52,7 +52,7 @@ const Scroll = forwardRef<ScrollerHandlers, ScrollProps>(({
   pullUp,
   pullDown,
 }, ref) => {
-  const scrollContaninerRef = useRef<any>();
+  const scrollContaninerRef = useRef<HTMLDivElement | null>(null);
   const [bScroll, setBScroll] = useState<BScroll | null>(null);
 
   const pullUpDebounce = useMemo(() => {
@@ -86,7 +86,7 @@ const Scroll = forwardRef<ScrollerHandlers, ScrollProps>(({
   useEffect(() => {
     if (!bScroll || !onScroll) return;
 
-    bScroll.on('scroll', (scroll: any) => {
+    bScroll.on('scroll', (scroll: Event) => {
       onScroll(scroll);
     });
 

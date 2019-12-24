@@ -6,6 +6,8 @@ import {
   RecommendListRequestResp,
   SingerListItem,
   SingerListRequestResp,
+  RankListItem,
+  RankListRequestResp,
 } from '@/interfaces';
 
 /** 获取 banner 数据 */
@@ -38,4 +40,11 @@ export const getSingerListRequest = async (category: string, alpha: string, coun
   }});
 
   return result?.artists || [];
+};
+
+/** 获取排行榜列表 */
+export const getRankListRequest = async (): Promise<RankListItem[]> => {
+  const result = await Service.get<RankListRequestResp>({ url: '/toplist/detail' });
+
+  return result?.list || [];
 };

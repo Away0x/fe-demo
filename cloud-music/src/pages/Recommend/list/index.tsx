@@ -1,5 +1,6 @@
 import React from 'react';
 import LazyLoad from 'react-lazyload';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import { getCount } from '@/utils';
 import { RecommendListItem } from '@/interfaces';
@@ -13,7 +14,14 @@ interface RecommendListProps {
   recommendList: RecommendListItem[]
 }
 
-const RecommendList: React.FC<RecommendListProps> = ({ recommendList }) => {
+const RecommendList: React.FC<RecommendListProps & RouteComponentProps> = ({
+  recommendList,
+  history,
+}) => {
+  const enterDetail = (id: number) => {
+    history.push(`/recommend/${id}`)
+  };
+
   return (
     <ListWrapper>
       <h1 className="title"> 推荐歌单 </h1>
@@ -21,7 +29,8 @@ const RecommendList: React.FC<RecommendListProps> = ({ recommendList }) => {
         {
           recommendList.map((item, index) => {
             return (
-              <ListItem key={item.id + index}>
+              <ListItem key={item.id + index}
+                onClick={() => enterDetail(item.id)}>
                 <div className="img_wrapper">
                   <div className="decorate"></div>
                   {/* 加此参数可以减小请求的图片资源大小 */}
@@ -43,4 +52,4 @@ const RecommendList: React.FC<RecommendListProps> = ({ recommendList }) => {
   );
 };
 
-export default React.memo<typeof RecommendList>(RecommendList);
+export default React.memo<RecommendListProps>(withRouter(RecommendList) as any);
