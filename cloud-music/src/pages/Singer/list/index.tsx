@@ -21,7 +21,7 @@ const SingerListWrapper = React.forwardRef<HTMLDivElement, SingerListWrapperProp
   showBackground = false,
 }, ref) => {
   const totalCount = songs.length;
-  const selectItem = (e: HotSongInfo, index: number) => {
+  const selectItem = (e: any, index: number) => {
     console.log(index);
   }
   const songList = (list: HotSongInfo[]) => {

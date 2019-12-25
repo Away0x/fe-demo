@@ -7,7 +7,7 @@ import { SingerListItem } from '@/interfaces';
 import {
   List,
   ListItem,
-} from './index.style';
+} from './list.style';
 
 interface SingerListProps {
   list: SingerListItem[];

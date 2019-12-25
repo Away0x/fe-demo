@@ -114,13 +114,13 @@ const Singer: React.FC<RouteProps & SingerProps> = ({
       classNames="fly"
       appear={true}
       unmountOnExit
-      onExited={() => history.goBack()}>
+      onExited={history.goBack}>
       <Container>
         <Header
           handleClick={setShowStatusFalse}
           title={artist?.name}
           ref={header} />
-        <ImgWrapper ref={imageWrapper} bgUrl={artist?.picUrl}>
+        <ImgWrapper ref={imageWrapper} bgUrl={artist?.picUrl || ''}>
           <div className="filter"></div>
         </ImgWrapper>
         <CollectButton ref={collectButton}>

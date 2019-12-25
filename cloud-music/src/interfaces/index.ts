@@ -101,12 +101,18 @@ export interface AlbumListRequestResp {
 
 /** 歌手信息 */
 export interface ArtistInfo {
-  [k: string]: any;
+  name: string;
+  picUrl: string;
 }
 
 /** 热门歌曲 */
 export interface HotSongInfo {
-  [k: string]: any;
+  id: number;
+  name: string;
+  ar: {name: string}[];
+  artists: {name: string}[];
+  al: {name: string};
+  album: {name: string};
 }
 
 /** 获取歌手信息的响应类型 */

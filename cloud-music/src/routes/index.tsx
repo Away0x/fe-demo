@@ -7,6 +7,7 @@ import Singers from '@/pages/Singers';
 import Rank from '@/pages/Rank';
 import Album from '@/pages/Album';
 import Singer from '@/pages/Singer';
+import Search from '@/pages/Search';
 
 export default [
   {
@@ -56,6 +57,12 @@ export default [
             component: Album
           }
         ]
+      },
+      {
+        path: "/search",
+        exact: true,
+        key: "search",
+        component: Search
       }
     ]
   }

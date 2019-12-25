@@ -6,7 +6,7 @@ import {
   List,
   ListItem,
   SongList,
-} from './index.style';
+} from './list.style';
 
 interface RankListProps {
   global?: boolean; // 是否为全球榜

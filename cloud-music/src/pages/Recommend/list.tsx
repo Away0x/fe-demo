@@ -8,7 +8,7 @@ import {
   ListWrapper,
   ListItem,
   List,
-} from './index.style';
+} from './list.style';
 
 interface RecommendListProps {
   recommendList: RecommendListItem[]
