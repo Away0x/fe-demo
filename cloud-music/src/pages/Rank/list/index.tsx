@@ -1,7 +1,7 @@
 import React from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import { RankListItem } from '@/interfaces';
-import { filterIdx } from '../utils';
 import {
   List,
   ListItem,
@@ -13,24 +13,22 @@ interface RankListProps {
   list: RankListItem[];
 }
 
-const RankList: React.FC<RankListProps> = ({
+const RankList: React.FC<RankListProps & RouteComponentProps> = ({
   global = false,
   list,
+
+  history,
 }) => {
-  const enterDetail = (name: string) => {
-    const idx = filterIdx(name);
-    if (idx === null) {
-      alert("暂无相关数据");
-      return;
-    }
-  };
+  const enterDetail = (detail: RankListItem) => {
+    history.push(`/rank/${detail.id}`)
+  }
 
   return (
     <List globalRank={global}>
       {
         list.map((item, i) => {
           return (
-            <ListItem key={i} tracks={item.tracks} onClick={() => enterDetail(item.name)}>
+            <ListItem key={i} tracks={item.tracks} onClick={() => enterDetail(item)}>
               <div className="img_wrapper">
                 <img src={item.coverImgUrl} alt="" />
                 <div className="decorate"></div>
@@ -55,4 +53,4 @@ const RankList: React.FC<RankListProps> = ({
   );
 };
 
-export default React.memo<typeof RankList>(RankList);
+export default React.memo<RankListProps>(withRouter(RankList) as any);

@@ -8,7 +8,7 @@ import { AlbumListItem } from '@/interfaces';
 import Header from '@/components/Header';
 import Loading from '@/components/Loading';
 import Scroll from '@/components/Scroll';
-import { getCount, isEmptyObject } from '@/utils';
+import { getCount, isEmptyObject, getName } from '@/utils';
 import helpers from '@/assets/style/helpers';
 import { HEADER_HEIGHT } from '@/constants';
 
@@ -20,16 +20,6 @@ import {
   SongItem,
 } from './index.style';
 import { getAlbumList } from './store/actions';
-
-// 处理歌手列表拼接歌手名字
-const getName = (list: {name: string}[]) => {
-  let str = '';
-  list.map((item, index) => {
-    str += index === 0 ? item.name : '/' + item.name;
-    return item;
-  });
-  return str;
-};
 
 const MenuWrapper = () => {
   return (
@@ -150,9 +140,9 @@ const Album: React.FC<RouteProps & AlbumProps> = ({
     getAlbumDataDispatch(Number(id));
   }, [getAlbumDataDispatch, id]);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     setShowStatus(false);
-  };
+  }, []);
 
   const handleScroll = useCallback((pos: any) => {
     const minScrollY = -HEADER_HEIGHT;

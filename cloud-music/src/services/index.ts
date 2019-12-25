@@ -10,6 +10,7 @@ import {
   RankListRequestResp,
   AlbumListItem,
   AlbumListRequestResp,
+  SingerInfoRequestResp,
 } from '@/interfaces';
 
 /** 获取 banner 数据 */
@@ -56,4 +57,11 @@ export const getAlbumDetailRequest = async (id: number): Promise<AlbumListItem |
   const result = await Service.get<AlbumListRequestResp>({ url: '/playlist/detail', params: {id} });
 
   return result?.playlist || null;
+};
+
+/** 获取歌手详情 */
+export const getSingerInfoRequest = async (id: number): Promise<SingerInfoRequestResp | null> => {
+  const result = await Service.get<SingerInfoRequestResp>({ url: '/artists', params: { id } });
+
+  return result;
 };

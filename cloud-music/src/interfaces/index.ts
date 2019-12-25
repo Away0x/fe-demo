@@ -38,6 +38,7 @@ export interface HorizenItem {
 
 /** singer item */
 export interface SingerListItem {
+  id: number;
   picUrl: string;
   name: string;
   accountId: number;
@@ -57,6 +58,7 @@ export interface RankSongItem {
 
 /** rank item */
 export interface RankListItem {
+  id: number;
   name: string;
   coverImgId: string;
   coverImgUrl: string;
@@ -94,5 +96,22 @@ export interface AlbumListItem {
 /** 获取榜单详情列表的请求响应类型 */
 export interface AlbumListRequestResp {
   playlist: AlbumListItem;
+  code: number;
+}
+
+/** 歌手信息 */
+export interface ArtistInfo {
+  [k: string]: any;
+}
+
+/** 热门歌曲 */
+export interface HotSongInfo {
+  [k: string]: any;
+}
+
+/** 获取歌手信息的响应类型 */
+export interface SingerInfoRequestResp {
+  artist: ArtistInfo;
+  hotSongs: HotSongInfo[];
   code: number;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { forceCheck } from 'react-lazyload';
+import { renderRoutes, RouteConfig, RouteConfigComponentProps } from 'react-router-config';
 
 import Horizen from '@/components/Horizen';
 import Scroll from '@/components/Scroll';
@@ -38,6 +39,8 @@ interface SingersProps {
   updateDispatch: (category: string, alpha: string) => void;
   pullUpRefreshDispatch: (category: string, alpha: string, hot: boolean, count: number) => void;
   pullDownRefreshDispatch: (category: string, alpha: string) => void;
+
+  route?: RouteConfig;
 }
 
 const Singers: React.FC<SingersProps> = ({
@@ -51,6 +54,8 @@ const Singers: React.FC<SingersProps> = ({
   updateDispatch,
   pullUpRefreshDispatch,
   pullDownRefreshDispatch,
+
+  route,
 }) => {
   const [category, setCategory] = useState('');
   const [alpha, setAlpha] = useState('');
@@ -101,11 +106,13 @@ const Singers: React.FC<SingersProps> = ({
         </Scroll>
         <Loading show={enterLoading} />
       </ListContainer>
+
+      {renderRoutes(route?.routes)}
     </div>
   )
 };
 
-export default React.memo(() => {
+export default React.memo(({ route }: RouteConfigComponentProps) => {
   const dispatch = useDispatch();
 
   const singerList = useSelector(((state: RootState) => state.singers.singerList || []));
@@ -152,5 +159,6 @@ export default React.memo(() => {
     getHotSingerDispatch={getHotSingerDispatch}
     updateDispatch={updateDispatch}
     pullUpRefreshDispatch={pullUpRefreshDispatch}
-    pullDownRefreshDispatch={pullDownRefreshDispatch} />
+    pullDownRefreshDispatch={pullDownRefreshDispatch}
+    route={route} />
 });

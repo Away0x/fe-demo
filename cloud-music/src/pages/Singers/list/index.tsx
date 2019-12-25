@@ -1,5 +1,6 @@
 import React from 'react';
 import LazyLoad from 'react-lazyload';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import { SingerListItem } from '@/interfaces';
 
@@ -13,13 +14,21 @@ interface SingerListProps {
 }
 
 // 渲染函数，返回歌手列表
-const SingerList: React.FC<SingerListProps> = ({ list }) => {
+const SingerList: React.FC<SingerListProps & RouteComponentProps> = ({
+  list,
+
+  history,
+}) => {
+  const enterDetail = (id: number)  => {
+    history.push (`/singers/${id}`);
+  };
+
   return (
     <List>
       {
         list.map((item, index) => {
           return (
-            <ListItem key={item.accountId + "" + index}>
+            <ListItem key={item.accountId + "" + index} onClick={() => enterDetail(item.id)}>
               <div className="img_wrapper">
                 <LazyLoad placeholder={<img width="100%" height="100%" src={require('./singer.png')} alt="music" />}>
                   <img src={`${item.picUrl}?param=300x300`} width="100%" height="100%" alt="music" />
@@ -34,4 +43,4 @@ const SingerList: React.FC<SingerListProps> = ({ list }) => {
   )
 };
 
-export default React.memo<typeof SingerList>(SingerList);
+export default React.memo<SingerListProps>(withRouter(SingerList) as any);

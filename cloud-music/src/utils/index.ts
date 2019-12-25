@@ -24,3 +24,13 @@ export const debounce = (func: Function, delay: number) => {
 
 // 判断一个对象是否为空
 export const isEmptyObject = (obj: object) => !obj || Object.keys(obj).length === 0;
+
+// 处理歌手列表拼接歌手名字
+export const getName = (list: { name: string }[]) => {
+  let str = '';
+  list.map((item, index) => {
+    str += index === 0 ? item.name : '/' + item.name;
+    return item;
+  });
+  return str;
+};
