@@ -2,7 +2,7 @@ import React from 'react';
 import { renderRoutes, RouteConfigComponentProps } from "react-router-config";
 import { NavLink } from 'react-router-dom';
 
-import Player from '@/pages/Player';
+// import Player from '@/pages/Player';
 import {
   Top,
   Tab,
@@ -24,7 +24,7 @@ const Home: React.FC<RouteConfigComponentProps> = ({ route, history }) => {
       </Tab>
       { renderRoutes(route?.routes) }
 
-      <Player />
+      {/* <Player /> */}
     </div>
   );
 };
