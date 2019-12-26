@@ -2,6 +2,7 @@ import React from 'react';
 import { renderRoutes, RouteConfigComponentProps } from "react-router-config";
 import { NavLink } from 'react-router-dom';
 
+import Player from '@/pages/Player';
 import {
   Top,
   Tab,
@@ -22,6 +23,8 @@ const Home: React.FC<RouteConfigComponentProps> = ({ route, history }) => {
         <NavLink to="/rank" activeClassName="selected"><TabItem><span>排行榜</span></TabItem></NavLink>
       </Tab>
       { renderRoutes(route?.routes) }
+
+      <Player />
     </div>
   );
 };
