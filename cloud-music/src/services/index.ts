@@ -11,6 +11,11 @@ import {
   AlbumListItem,
   AlbumListRequestResp,
   SingerInfoRequestResp,
+  HotKeyWordsRequestResp,
+  SuggestListRequestResp,
+  ResultSongsListRequestResp,
+  HotKeyWordItem,
+  SongListItem,
 } from '@/interfaces';
 
 /** 获取 banner 数据 */
@@ -64,4 +69,25 @@ export const getSingerInfoRequest = async (id: number): Promise<SingerInfoReques
   const result = await Service.get<SingerInfoRequestResp>({ url: '/artists', params: { id } });
 
   return result;
+};
+
+/** 获取热搜关键字 */
+export const getHotKeyWordsRequest = async (): Promise<HotKeyWordItem[]> => {
+  const result = await Service.get<HotKeyWordsRequestResp>({ url: '/search/hot' });
+
+  return result?.result?.hots || [];
+};
+
+/** 关键字获取推荐列表 */
+export const getSuggestListRequest = async (query: string): Promise<any> => {
+  const result = await Service.get<SuggestListRequestResp>({ url: '/search/suggest', params: { keywords: query } });
+
+  return result?.result || [];
+};
+
+/** 关键字获取歌曲列表 */
+export const getResultSongsListRequest = async (query: string): Promise<SongListItem[]> => {
+  const result = await Service.get<ResultSongsListRequestResp>({ url: '/search', params: { keywords: query } });
+
+  return result?.result?.songs || [];
 };

@@ -5,7 +5,7 @@ import { getName } from '@/utils';
 import {
   SongList,
   SongItem,
-} from './index.style';
+} from './list.style';
 
 interface SingerListWrapperProps {
   songs: HotSongInfo[];

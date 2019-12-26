@@ -121,3 +121,34 @@ export interface SingerInfoRequestResp {
   hotSongs: HotSongInfo[];
   code: number;
 }
+
+export interface HotKeyWordItem {
+  first: string;
+}
+
+export interface SongListItem {
+  id: number;
+  name: string;
+  artists: {name: string}[];
+  album: {name: string};
+}
+
+/** 获取热搜关键字的响应类型 */
+export interface HotKeyWordsRequestResp {
+  code: number;
+  result: {
+    hots: HotKeyWordItem[];
+  };
+}
+
+/** 关键字获取推荐列表的响应类型 */
+export interface SuggestListRequestResp {
+  result: any;
+}
+
+/** 关键字获取歌曲列表的响应类型 */
+export interface ResultSongsListRequestResp {
+  result: {
+    songs: SongListItem[];
+  };
+}
