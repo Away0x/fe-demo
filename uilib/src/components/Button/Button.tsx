@@ -4,7 +4,7 @@ import classnames from 'classnames';
 export type ButtonSize = 'lg' | 'sm';
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 
-type BaseButtonProps = {
+interface BaseButtonProps {
   className?: string;
   /**设置 Button 的禁用 */
   disabled?: boolean;
@@ -14,7 +14,7 @@ type BaseButtonProps = {
   btnType?: ButtonType;
   children: React.ReactNode;
   href?: string;
-};
+}
 
 type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
 type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
