@@ -1,0 +1,5 @@
+type Query {
+  # [Hello!] 可以理解为 [{id: 1, name: 'jack'}, {id: 2, name: 'praise'}]
+  # Hello! 可以理解为 {id: 1, name: 'jack'}
+  hellos: [Hello!]
+}
