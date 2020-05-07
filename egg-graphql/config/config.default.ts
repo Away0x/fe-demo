@@ -38,6 +38,21 @@ export default (appInfo: EggAppInfo) => {
     },
   };
 
+  config.sequelize = {
+    dialect: 'mysql',
+    host: '127.0.0.1',
+    port: 3306,
+    database: 'egg-graphql',
+    username: 'root',
+    password: '1234',
+    timezone: '+08:00',
+    define: {
+      freezeTableName: false,
+      underscored: true,
+      timestamps: false,
+    },
+  };
+
   // add your special config in here
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
