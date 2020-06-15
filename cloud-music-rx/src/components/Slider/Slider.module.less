@@ -1,0 +1,42 @@
+@import '~@/styles/var';
+
+:global {
+  .slider-component {
+    .swiper-pagination-bullet-active {
+      background: @theme-color;
+    }
+  }
+}
+
+.sliderComponent {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background: white;
+}
+
+.sliderContainer {
+  position: relative;
+  width: 98%;
+  height: 160px;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 6px;
+}
+
+.sliderNav {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.before {
+  position: absolute;
+  top: -300px;
+  height: 400px;
+  width: 100%;
+  background: @theme-color;
+}

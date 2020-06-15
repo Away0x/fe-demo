@@ -1,0 +1,95 @@
+@import '~@/styles/var';
+@import '~@/styles/mixins/ellipsis';
+
+:global {
+  .miniplayer-enter {
+    transform: translate3d(0, 100%, 0);
+  }
+  .miniplayer-enter-active {
+    transform: translate3d(0, 0, 0);
+    transition: all 0.4s;
+  }
+  .miniplayer-exit-active {
+    transform: translate3d(0, 100%, 0);
+    transition: all .4s
+  }
+
+  .miniplayer-component {
+    .imgPlay {
+      animation: rotate 10s infinite;
+    }
+    .imgPause {
+      animation-play-state: paused;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 60px;
+  background: @highlight-background-color;
+}
+
+.icon {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  padding: 0 10px 0 20px;
+}
+
+.imgWrapper {
+  width: 100%;
+  height: 100%;
+  img {
+    border-radius: 50%;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  line-height: 20px;
+  overflow: hidden;
+}
+
+.name {
+  margin-bottom: 2px;
+  font-size: @font-size-m;
+  color: @font-color-desc;
+  .ellipsis();
+}
+
+.desc {
+  font-size: @font-size-s;
+  color: @font-color-desc-v2;
+  .ellipsis();
+}
+
+.control {
+  flex: 0 0 30PX;
+  padding: 0 10PX;
+}
+
+.iconfont {
+  font-size: 30px;
+  color: @theme-color;
+}
+
+.iconMini {
+  font-size: 16PX;
+  position: absolute;
+  left: 8PX;
+  top: 8PX;
+}
+
+.iconPlay {
+  left: 10PX;
+}

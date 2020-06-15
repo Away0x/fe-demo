@@ -1,0 +1,220 @@
+@import '~@/styles/var';
+@import '~@/styles/mixins/ellipsis';
+
+:global {
+  .normalplayer-enter, .normalplayer-exit-done {
+    &.normalplayer-component {
+      .top {
+        transform: translate3d(0, -100px, 0);
+      }
+      .bottom {
+        transform: translate3d(0, 100px, 0);
+      }
+    }
+  }
+  .normalplayer-enter-active, .normalplayer-exit-active {
+    opacity: 1;
+    transition: all 0.4s;
+
+    &.normalplayer-component {
+      .top, .bottom {
+        transform: translate3d(0, 0, 0);
+        transition: all 0.4s cubic-bezier(0.86, 0.18, 0.82, 1.32);
+      }
+    }
+  }
+  .normalplayer-exit-active {
+    opacity: 0;
+  }
+
+  .normalplayer-component {
+    .play {
+      animation: rotate 20s linear infinite;
+    }
+    .pause {
+      animation-play-state: paused;
+    }
+  }
+}
+
+.container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 150;
+  background: @background-color;
+}
+
+.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(20px);
+}
+
+.layer {
+  background: @font-color-desc;
+  opacity: 0.3;
+  filter: none;
+}
+
+// -------------- top --------------
+.top {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 6px;
+  z-index: 50;
+}
+
+.iconfont {
+  display: block;
+  padding: 9px;
+  font-size: 24px;
+  color: @font-color-desc;
+  font-weight: bold;
+  transform: rotate(90deg);
+}
+
+.title {
+  width: 70%;
+  margin: 0 auto;
+  line-height: 40px;
+  text-align: center;
+  font-size: @font-size-l;
+  color: @font-color-desc;
+  .ellipsis()
+}
+
+.subtitle {
+  line-height: 20px;
+  text-align: center;
+  font-size: @font-size-m;
+  color: @font-color-desc-v2;
+  .ellipsis()
+}
+
+// -------------- middle --------------
+.middle {
+  position: fixed;
+  width: 100%;
+  top: 80px;
+  bottom: 170px;
+  white-space: nowrap;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.cdWrapper {
+  position: absolute;
+  margin: auto;
+  top: 10%;
+  left: 0;
+  right: 0;
+  width: 80%;
+  box-sizing: border-box;
+  height: 80vw;
+}
+
+.cd {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.cdImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 10px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.playingLyric {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: normal;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+// -------------- bottom --------------
+.bottom {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+}
+
+.progressWrapper {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 0px auto;
+  padding: 10px 0;
+}
+.progressTime {
+  color: @font-color-desc;
+  font-size: @font-size-s;
+  flex: 0 0 30px;
+  line-height: 30px;
+  width: 30px;
+}
+.progressTimeL {
+  text-align: left;
+}
+.progressTimeR {
+  text-align: right;
+}
+.progressBarWrapper {
+  flex: 1;
+}
+
+.operators {
+  display: flex;
+  align-items: center;
+}
+.operatorsIcon {
+  font-weight: 300;
+  flex: 1;
+  color: @font-color-desc;
+
+  i {
+    font-weight: 300;
+    font-size: 30px;
+  }
+}
+.operatorsIconDisable {
+  color: @theme-color-shadow;
+}
+.operatorsIconLeft {
+  text-align: right;
+}
+.operatorsIconCenter {
+  padding: 0 20px;
+  text-align: center;
+
+  i {
+    font-size: 40px;
+  }
+}
+.operatorsIconRight {
+  text-align: left;
+}
+.operatorsIconFavorite {
+  color: @theme-color;
+}

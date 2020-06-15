@@ -1,0 +1,40 @@
+@import '~@/styles/var';
+
+.list {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  overflow: hidden;
+
+  h1 {
+    margin:10px 0 10px 10px;
+    color: @font-color-desc;
+    font-size: @font-size-s;
+  }
+}
+
+.listItem {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  margin: 0 5px;
+  padding: 5px 0;
+  align-items: center;
+  border-bottom: 1px solid @border-color;
+}
+
+.imgWrapper {
+  margin-right: 20px;
+}
+
+.img {
+  border-radius: 3px;
+  width: 50px;
+  height: 50px;
+}
+
+.name {
+  font-size: @font-size-m;
+  color: @font-color-desc;
+  font-weight: 500;
+}

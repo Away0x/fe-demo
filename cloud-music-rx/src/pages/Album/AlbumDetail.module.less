@@ -1,0 +1,130 @@
+@import '~@/styles/var';
+
+.top {
+  background-size: 100%;
+  padding: 5px 20px;
+  padding-bottom: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 275px;
+  position: relative;
+}
+
+.topBg {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(20px);
+}
+
+.topFilter {
+  position: absolute;
+  z-index: 10;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7, 17, 27, 0.2);
+}
+
+.imgWrapper {
+  width: 120px;
+  height: 120px;
+  position: relative;
+
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 3px;
+  }
+}
+
+.playCount {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  font-size: @font-size-s;
+  line-height: 15px;
+  color: @font-color-light;
+
+  i {
+    vertical-align: top;
+  }
+}
+
+.descWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 120px;
+  padding: 0 10px;
+}
+
+.descTitle {
+  max-height: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: @font-color-light;
+  font-weight: 700;
+  line-height: 1.5;
+  font-size: @font-size-l;
+}
+
+.decorate {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 35px;
+  border-radius: 3px;
+  background: linear-gradient(hsla(0,0%,43%,.4),hsla(0,0%,100%,0));
+}
+
+.person {
+  display: flex;
+}
+
+.avatar {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}
+
+.name {
+  line-height: 20px;
+  font-size: @font-size-m;
+  color: @font-color-desc-v2;
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 30px 20px 30px;
+  margin: -100px 0 0 0;
+  >div {
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
+    text-align: center;
+    font-size: @font-size-s;
+    color: #3b1f1f;
+    color: @font-color-light;
+    z-index:1000;
+    font-weight: 500;
+    i {
+      font-size: 20px;
+    }
+  }
+}

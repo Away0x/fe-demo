@@ -1,0 +1,94 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading {
+  0%, 100% {
+    transform: scale(0.0);
+  }
+  50% {
+    transform: scale(1.0);
+  }
+}
+
+@keyframes dance {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    transform-origin: center 100%;
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
+
+// fly & rotate
+.fly-enter, .fly-appear {
+  transform: rotateZ(30deg) translate3d(100%, 0, 0);
+}
+.fly-enter-active, .fly-appear-active {
+  transition: transform .3s;
+  transform: rotateZ(0deg) translate3d(0, 0, 0);
+}
+.fly-exit {
+  transform: rotateZ(0deg) translate3d(0, 0, 0);
+}
+.fly-exit-active {
+  transition: transform .3s;
+  transform: rotateZ(30deg) translate3d(100%, 0, 0);
+}
+
+// fly & translate
+.fly2-enter, .fly2-appear{
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.fly2-enter-active, .fly2-appear-active{
+  opacity: 1;
+  transition: all .3s;
+  transform: translate3d(0, 0, 0);
+}
+.fly2-exit{
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+.fly2-exit-active{
+  opacity: 0;
+  transition: all .3s;
+  transform: translate3d(100%, 0, 0);
+}

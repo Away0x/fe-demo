@@ -1,0 +1,68 @@
+@import '~@/styles/var';
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background: @theme-color;
+}
+
+.topText {
+  line-height: 40px;
+  color: #f1f1f1;
+  font-size: 20px;
+}
+
+.icon {
+  font-size: 25px !important;
+}
+
+.tab {
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: @theme-color;
+}
+
+.tabA {
+  flex: 1;
+  padding: 2px 0;
+  font-size: 14px;
+  color: #e4e4e4;
+}
+
+.tabASelected span {
+  padding: 3px 0;
+  font-weight: 700;
+  color: #f1f1f1;
+  border-bottom: 2px solid #f1f1f1;
+}
+
+.tabItem {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar {
+  background: #fff;
+  width: 200px;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 50px;
+  overflow: hidden;
+
+  p {
+    line-height: 40px;
+    text-align: center;
+  }
+}
+
+.userName {
+  line-height: 20px;
+  text-align: center;
+}

@@ -1,0 +1,12 @@
+/** 扩大可点击区域 */
+.extend-click() {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: '';
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+}
