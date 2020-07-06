@@ -1,0 +1,75 @@
+{
+  "name": "pomodoro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "progressbar.js": "^1.1.0",
+    "timer.js": "^1.0.4"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "electron": "^7.3.2",
+    "electron-builder": "^22.7.0",
+    "electron-builder-squirrel-windows": "^22.7.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack:mac": "NPM_CONFIG_ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ electron-builder build --mac",
+    "pack:win": " cross-env NPM_CONFIG_ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ electron-builder build --win --ia32",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.away0x.pomodoro",
+    "productName": "Pomodoro",
+    "asar": false,
+    "directories": {
+      "buildResources": "resource",
+      "output": "release"
+    },
+    "copyright": "Copyright © 2020 dragon",
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "dmg": {
+      "window": {
+        "width": 540,
+        "height": 380
+      },
+      "contents": [
+        {
+          "x": 410,
+          "y": 180,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 180,
+          "type": "file"
+        }
+      ],
+      "iconSize": 128
+    },
+    "win": {
+      "target": [
+        "squirrel",
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "language": "2052",
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "squirrelWindows": {
+      "iconUrl": "https://raw.githubusercontent.com/dengyaolong/geektime-electron/master/img/icon.ico"
+    }
+  },
+  "author": "",
+  "license": "ISC"
+}
