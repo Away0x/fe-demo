@@ -6,11 +6,11 @@ import {
   faStickyNote,
   faEllipsisH,
   faCog,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
 import Badge from 'components/Badge';
 import Avatar from 'components/Avatar';
-import profileImage from "assets/images/face-male-1.jpg";
+import profileImage from 'assets/images/face-male-1.jpg';
 
 import StyledNavBar, { StyledMenuItem, MenuIcon, MenuItems } from './style';
 
@@ -21,15 +21,10 @@ interface MenuItemProps {
   style?: CSSProperties;
 }
 
-function MenuItem({
-  active,
-  showBadge,
-  icon,
-  style,
-}: MenuItemProps) {
+function MenuItem({ active, showBadge, icon, style }: MenuItemProps) {
   return (
     <StyledMenuItem active={active ? 1 : 0} style={style}>
-      <a href="#">
+      <a href="#/">
         <Badge show={showBadge}>
           <MenuIcon active={active ? 1 : 0} icon={icon} />
         </Badge>
@@ -42,9 +37,7 @@ interface NavBarProps {
   children?: React.ReactNode;
 }
 
-function NavBar({
-  children,
-}: NavBarProps) {
+function NavBar({ children }: NavBarProps) {
   return (
     <StyledNavBar>
       <Avatar src={profileImage} status="online" />
@@ -57,7 +50,7 @@ function NavBar({
         <MenuItem
           icon={faCog}
           style={{
-            alignSelf: 'end'
+            alignSelf: 'end',
           }}
         />
       </MenuItems>
@@ -67,6 +60,4 @@ function NavBar({
 
 export default NavBar;
 
-export {
-  MenuItem,
-};
+export { MenuItem };

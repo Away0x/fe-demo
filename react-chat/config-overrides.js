@@ -5,6 +5,6 @@ const {
 
 module.exports = override(
   addBabelPlugins(
-    ['babel-plugin-styled-components']
-  )
+    ['babel-plugin-styled-components'],
+  ),
 );
