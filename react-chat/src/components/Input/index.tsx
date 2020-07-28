@@ -22,11 +22,9 @@ function Input({ placeholder = '请输入内容...', prefix, suffix }: InputProp
   );
 }
 
-interface SearchProps {
-  placeholder?: string;
-}
+interface SearchProps extends InputProps {}
 
-function Search({ placeholder = '请输入内容...' }: SearchProps) {
+function Search({ placeholder = '请输入内容...', ...rest }: SearchProps) {
   const theme = useTheme();
 
   return (
@@ -35,6 +33,7 @@ function Search({ placeholder = '请输入内容...' }: SearchProps) {
       prefix={
         <Icon icon={SearchIcon} color={theme.gray3} width={18} height={18} />
       }
+      {...rest}
     />
   );
 }
