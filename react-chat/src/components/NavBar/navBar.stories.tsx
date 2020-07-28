@@ -1,12 +1,12 @@
 import React from 'react';
-import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
+import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
 
-import theme from 'theme';
-import NavBar, { MenuItem } from ".";
+import { theme } from 'containers/theme';
+import NavBar, { MenuItem } from '.';
 
 export default {
   title: '页面组件/NavBar',
-  component: NavBar
+  component: NavBar,
 };
 
 export const Default = () => <NavBar />;
