@@ -1,2 +1,2 @@
-export type Types = 'primary';
+export type Types = 'primary' | 'hangoff';
 export type Shapes = 'circle' | 'rect';

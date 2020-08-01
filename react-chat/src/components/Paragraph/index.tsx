@@ -8,11 +8,22 @@ interface ParagraphProps extends TextProps {
   ellipsis?: boolean;
   children: React.ReactNode;
   style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
-function Paragraph({ ellipsis, children, style, ...rest }: ParagraphProps) {
+function Paragraph({
+  ellipsis,
+  onClick,
+  children,
+  style,
+  ...rest
+}: ParagraphProps) {
   return (
-    <StyledParagraph ellipsis={ellipsis} style={style} {...rest}>
+    <StyledParagraph
+      ellipsis={ellipsis}
+      style={style}
+      {...rest}
+      onClick={onClick}>
       {children}
     </StyledParagraph>
   );
