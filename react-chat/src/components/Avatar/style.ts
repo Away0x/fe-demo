@@ -2,8 +2,10 @@ import styled, { css } from 'styled-components';
 
 import { circle } from 'tools/mixins';
 
+import { StatusTypes } from './type';
+
 const circleMixinFunc = (color: string, size = '8px') => css`
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   ${circle(color, size)}
@@ -15,7 +17,7 @@ const StyledAvatar = styled.div`
 
 interface StatusIconProps {
   readonly size: string;
-  readonly status: 'online' | 'offline';
+  readonly status: StatusTypes;
 }
 
 const StatusIcon = styled.div<StatusIconProps>`

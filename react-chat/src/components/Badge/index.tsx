@@ -14,13 +14,15 @@ function Badge({
   show = false,
   count = 0,
   showZero = false,
+  ...rest
 }: BadgeProps) {
   return (
     <StyledBadge
       variant={children ? 'dot' : 'default'}
       show={show}
       count={count}
-      showZero={showZero}>
+      showZero={showZero}
+      {...rest}>
       {children || <Count>{count}</Count>}
     </StyledBadge>
   );

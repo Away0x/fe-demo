@@ -1,15 +1,17 @@
 import React from 'react';
 
+import { TextProps } from 'components/Text';
+
 import StyledParagraph from './style';
 
-interface ParagraphProps {
-  children: React.ReactNode;
+interface ParagraphProps extends TextProps {
   ellipsis?: boolean;
+  children: React.ReactNode;
 }
 
-function Paragraph({ ellipsis, children }: ParagraphProps) {
+function Paragraph({ ellipsis, children, ...rest }: ParagraphProps) {
   return (
-    <StyledParagraph as="p" ellipsis={ellipsis}>
+    <StyledParagraph ellipsis={ellipsis} {...rest}>
       {children}
     </StyledParagraph>
   );

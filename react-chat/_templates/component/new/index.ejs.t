@@ -7,14 +7,16 @@ import React from 'react';
 import Styled<%= name %> from './style';
 
 interface <%= name %>Props {
-
+  children: React.ReactNode;
 }
 
 function <%= name %>({
+  children,
+  ...rest
 }: <%= name %>Props) {
   return (
-    <Styled<%= name %>>
-      component <%= name %>
+    <Styled<%= name %> {...rest}>
+      {children}
     </Styled<%= name %>>
   );
 }

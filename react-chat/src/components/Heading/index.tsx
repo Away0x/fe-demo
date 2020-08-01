@@ -7,8 +7,12 @@ interface HeadingProps {
   children: React.ReactNode;
 }
 
-function Heading({ level, children }: HeadingProps) {
-  return <StyledHeading as={`h${level}`}>{children}</StyledHeading>;
+function Heading({ level, children, ...rest }: HeadingProps) {
+  return (
+    <StyledHeading as={`h${level}`} {...rest}>
+      {children}
+    </StyledHeading>
+  );
 }
 
 export default Heading;

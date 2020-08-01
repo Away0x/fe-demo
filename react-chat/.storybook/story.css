@@ -1,5 +1,9 @@
 @import url('../src/index.css');
 
+#root {
+  padding: 20px;
+}
+
 .row-elements {
   display: flex;
 }

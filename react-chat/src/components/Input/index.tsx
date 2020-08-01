@@ -12,9 +12,14 @@ interface InputProps {
   suffix?: React.ReactNode;
 }
 
-function Input({ placeholder = '请输入内容...', prefix, suffix }: InputProps) {
+function Input({
+  placeholder = '请输入内容...',
+  prefix,
+  suffix,
+  ...rest
+}: InputProps) {
   return (
-    <InputContainer>
+    <InputContainer {...rest}>
       {prefix && <Prefix>{prefix}</Prefix>}
       <StyledInput placeholder={placeholder} />
       {suffix && <Suffix>{suffix}</Suffix>}

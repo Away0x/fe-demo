@@ -5,7 +5,9 @@ interface StyledParagraphProps {
   ellipsis?: boolean;
 }
 
-const StyledParagraph: any = styled(StyledText)<StyledParagraphProps>`
+const StyledParagraph: any = styled(StyledText).attrs({ as: 'p' })<
+  StyledParagraphProps
+>`
   ${({ ellipsis }) =>
     ellipsis &&
     css`

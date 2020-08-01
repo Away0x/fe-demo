@@ -3,7 +3,7 @@ import React from 'react';
 import StyledText from './style';
 import { Types, Sizes } from './type';
 
-interface TextProps {
+export interface TextProps {
   size?: Sizes;
   type?: Types;
   children: React.ReactNode;
@@ -15,9 +15,10 @@ function Text({
   type = 'primary',
   size = 'normal',
   bold,
+  ...rest
 }: TextProps) {
   return (
-    <StyledText type={type} size={size} bold={!!bold}>
+    <StyledText type={type} size={size} bold={!!bold} {...rest}>
       {children}
     </StyledText>
   );

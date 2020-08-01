@@ -11,7 +11,12 @@ declare module 'styled-components' {
     darkPurple: string;
     gray2: string;
     gray3: string;
+    gray4: string;
     grayDark: string;
+
+    background: string;
+    inactiveColor: string;
+    inactiveColorDark: string;
 
     normal: string;
     medium: string;

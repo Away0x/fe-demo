@@ -21,9 +21,9 @@ interface MenuItemProps {
   style?: CSSProperties;
 }
 
-function MenuItem({ active, showBadge, icon, style }: MenuItemProps) {
+function MenuItem({ active, showBadge, icon, style, ...rest }: MenuItemProps) {
   return (
-    <StyledMenuItem active={active ? 1 : 0} style={style}>
+    <StyledMenuItem active={active ? 1 : 0} style={style} {...rest}>
       <a href="#/">
         <Badge show={showBadge}>
           <MenuIcon active={active ? 1 : 0} icon={icon} />
