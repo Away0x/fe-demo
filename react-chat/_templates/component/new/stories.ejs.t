@@ -12,5 +12,5 @@ export default {
 };
 
 export const Default = () => {
-  return <<%= name %> />;
+  return <<%= name %>><%= name %> component</<%= name %>>;
 };
