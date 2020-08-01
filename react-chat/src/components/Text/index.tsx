@@ -8,6 +8,7 @@ export interface TextProps {
   type?: Types;
   children: React.ReactNode;
   bold?: boolean;
+  style?: React.CSSProperties;
 }
 
 function Text({
@@ -15,10 +16,11 @@ function Text({
   type = 'primary',
   size = 'normal',
   bold,
+  style,
   ...rest
 }: TextProps) {
   return (
-    <StyledText type={type} size={size} bold={!!bold} {...rest}>
+    <StyledText style={style} type={type} size={size} bold={!!bold} {...rest}>
       {children}
     </StyledText>
   );

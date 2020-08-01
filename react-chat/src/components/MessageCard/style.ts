@@ -6,11 +6,11 @@ import Badge from 'components/Badge';
 import StyledAvatar from 'components/Avatar/style';
 import { card, activeBar } from 'tools/mixins';
 
-const Name: any = styled(Text).attrs({ size: 'large' })`
+const Name = styled(Text).attrs({ size: 'large' })`
   grid-area: name;
 `;
 
-const Time: any = styled(Text).attrs({
+const Time = styled(Text).attrs({
   size: 'medium',
   type: 'secondary',
 })`
@@ -18,7 +18,7 @@ const Time: any = styled(Text).attrs({
   justify-self: end;
 `;
 
-const Status: any = styled(Text).attrs({ type: 'secondary' })`
+const Status = styled(Text).attrs({ type: 'secondary' })`
   grid-area: status;
 `;
 
@@ -40,7 +40,7 @@ const Message = styled.div<MessageProps>`
 
 const MessageText = styled(Paragraph).attrs({ ellipsis: true })``;
 
-const UnreadBadge: any = styled(Badge)`
+const UnreadBadge = styled(Badge)`
   justify-self: end;
 `;
 

@@ -1,10 +1,11 @@
 import React from 'react';
-
-import StyledInput, { InputContainer, Prefix, Suffix } from './style';
 import { useTheme } from 'styled-components';
 
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 import Icon from 'components/Icon';
+
+import StyledInput, { InputContainer, Prefix, Suffix } from './style';
+import InputText from './InputText';
 
 interface InputProps {
   placeholder?: string;
@@ -44,5 +45,6 @@ function Search({ placeholder = '请输入内容...', ...rest }: SearchProps) {
 }
 
 Input.Search = Search;
+Input.Text = InputText;
 
 export default Input;

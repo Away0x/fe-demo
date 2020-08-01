@@ -6,10 +6,10 @@ import { ReactComponent as SmileIcon } from 'assets/icons/smile.svg';
 import { ReactComponent as MicrophoneIcon } from 'assets/icons/microphone.svg';
 import { ReactComponent as PlaneIcon } from 'assets/icons/plane.svg';
 import { ReactComponent as OptionsIcon } from 'assets/icons/options.svg';
-import Input from 'components/Input';
+import Input from 'components/Form';
 import Icon from 'components/Icon';
 import Button from 'components/Button';
-import Emoji from 'components/Emoji';
+import Emoji from 'components/Icon/Emoji';
 import Popover from 'components/Popover';
 
 import StyledFooter, { IconContainer, StyledPopoverContent } from './style';

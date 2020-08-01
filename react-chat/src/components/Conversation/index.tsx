@@ -3,7 +3,7 @@ import React from 'react';
 import TitleBar from 'components/TitleBar';
 import ChatBubble from 'components/ChatBubble';
 import VoiceMessage from 'components/VoiceMessage';
-import Emoji from 'components/Emoji';
+import Emoji from 'components/Icon/Emoji';
 import Footer from 'components/Footer';
 
 import StyledConversation, { Conversations, MyChatBubble } from './style';

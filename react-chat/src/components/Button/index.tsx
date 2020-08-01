@@ -9,6 +9,7 @@ interface ButtonProps {
   shape?: Shapes;
   size?: string;
   bgColor?: string;
+  style?: React.CSSProperties;
   onClick?: () => void;
 }
 
@@ -18,12 +19,14 @@ function Button({
   size = '30px',
   bgColor,
   children,
+  style,
   onClick,
   ...rest
 }: ButtonProps) {
   return (
     <StyledButton
       {...rest}
+      style={style}
       btntype={type}
       shape={shape}
       size={size}

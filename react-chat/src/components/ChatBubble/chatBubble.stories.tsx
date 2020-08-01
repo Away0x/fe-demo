@@ -1,7 +1,7 @@
 import React from 'react';
 
 import VoiceMessage from 'components/VoiceMessage';
-import Emoji from 'components/Emoji';
+import Emoji from 'components/Icon/Emoji';
 
 import ChatBubble from '.';
 

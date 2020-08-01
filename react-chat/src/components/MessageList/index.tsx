@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 import Filter from 'components/Filter';
-import Select from 'components/Select';
-import Option from 'components/Option';
+import Select from 'components/Form/Select';
+import Option from 'components/Form/Option';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
-import Input from 'components/Input';
+import Input from 'components/Form';
 import MessageCard from 'components/MessageCard';
 import { ReactComponent as Plus } from 'assets/icons/plus.svg';
 import face1 from 'assets/images/face-male-1.jpg';

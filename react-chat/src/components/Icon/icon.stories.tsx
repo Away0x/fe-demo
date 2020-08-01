@@ -14,6 +14,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 import Icon from '.';
+import Emoji from './Emoji';
 
 export default {
   title: 'UI 组件/Icon',
@@ -41,7 +42,7 @@ export const FontAwesomeColor = () => {
 
 export const FontAwesomeSizes = () => {
   return (
-    <div>
+    <div className="row-elements">
       <FontAwesomeIcon icon={faFolder} style={{ fontSize: '24px' }} />
       <FontAwesomeIcon icon={faStickyNote} style={{ fontSize: '36px' }} />
       <FontAwesomeIcon icon={faCommentDots} style={{ fontSize: '48px' }} />
@@ -51,7 +52,7 @@ export const FontAwesomeSizes = () => {
 
 export const SocialIcons = () => {
   return (
-    <div>
+    <div className="row-elements">
       <Icon.Social
         icon={faWeibo}
         bgColor="#F06767"
@@ -62,3 +63,12 @@ export const SocialIcons = () => {
     </div>
   );
 };
+
+/* eslint-disable jsx-a11y/accessible-emoji */
+export const EmojiIcons = () => (
+  <div className="row-elements">
+    <Emoji label="smile">😄</Emoji>
+    <Emoji label="todo">✅</Emoji>
+    <Emoji label="clock">🕔</Emoji>
+  </div>
+);

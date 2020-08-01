@@ -7,7 +7,7 @@ import { ReactComponent as SmileIcon } from 'assets/icons/smile.svg';
 import Input from '.';
 
 export default {
-  title: 'UI 组件/Input',
+  title: '表单/Input',
   component: Input,
 };
 
@@ -21,3 +21,6 @@ export const WithAffix = () => (
     suffix={<Icon icon={SmileIcon} color="#cccccc" />}
   />
 );
+
+export const InputTextWithLabel = () => <Input.Text label="昵称" />;
+export const InputTextWithoutLabel = () => <Input.Text />;
