@@ -7,7 +7,7 @@ import React from 'react';
 import Styled<%= name %> from './style';
 
 interface <%= name %>Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 function <%= name %>({
