@@ -16,13 +16,20 @@ import face from 'assets/images/face-male-3.jpg';
 import StyledTitleBar, { Actions, Title } from './style';
 
 interface TitleBarProps {
+  onAvatarClick?: () => void;
+  onVideoClicked?: () => void;
   children?: React.ReactNode;
 }
 
-function TitleBar({ children, ...rest }: TitleBarProps) {
+function TitleBar({
+  onAvatarClick,
+  onVideoClicked,
+  children,
+  ...rest
+}: TitleBarProps) {
   return (
     <StyledTitleBar {...rest}>
-      <Avatar status="offline" src={face} />
+      <Avatar onClick={onAvatarClick} status="offline" src={face} />
       <Title>
         <Paragraph size="large">慕容天宇</Paragraph>
         <Paragraph type="secondary">
@@ -31,8 +38,8 @@ function TitleBar({ children, ...rest }: TitleBarProps) {
         </Paragraph>
       </Title>
       <Actions>
-        <Icon opacity={0.3} icon={Call} />
-        <Icon opacity={0.3} icon={Camera} />
+        <Icon opacity={0.3} icon={Call} onClick={onVideoClicked} />
+        <Icon opacity={0.3} icon={Camera} onClick={onVideoClicked} />
         <Dropdown
           content={
             <>

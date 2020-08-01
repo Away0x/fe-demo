@@ -37,6 +37,7 @@ interface ProfileProps {
   showCloseIcon?: boolean;
   status?: StatusTypes;
   onEdit?: () => void;
+  onCloseClick?: () => void;
   children?: React.ReactNode;
 }
 
@@ -46,12 +47,13 @@ function Profile({
   showCloseIcon = true,
   status,
   onEdit,
+  onCloseClick,
   children,
   ...rest
 }: ProfileProps) {
   return (
     <StyledProfile {...rest}>
-      {showCloseIcon && <CloseIcon icon={Cross} />}
+      {showCloseIcon && <CloseIcon icon={Cross} onClick={onCloseClick} />}
       <Avatar
         style={{ margin: '26px 0', gridArea: '1 / 1 / 3 / 2' }}
         src={face}

@@ -22,10 +22,11 @@ import StyledVideoCall, {
 } from './style';
 
 interface VideoCallProps {
+  onHangOffClicked?: () => void;
   children?: React.ReactNode;
 }
 
-function VideoCall({ children, ...rest }: VideoCallProps) {
+function VideoCall({ onHangOffClicked, children, ...rest }: VideoCallProps) {
   const [fullScreen, setFullScreen] = useState(true);
 
   if (!fullScreen) {
@@ -64,7 +65,7 @@ function VideoCall({ children, ...rest }: VideoCallProps) {
           <FontAwesomeIcon icon={faMicrophone} />
         </Action>
         <Action type="hangoff">
-          <FontAwesomeIcon icon={faPhoneSlash} />
+          <FontAwesomeIcon icon={faPhoneSlash} onClick={onHangOffClicked} />
         </Action>
         <Action>
           <FontAwesomeIcon icon={faVolumeMute} />

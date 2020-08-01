@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Paragraph from 'components/Paragraph';
 import Switch from 'components/Form/Switch';
@@ -33,7 +34,14 @@ function Settings({ children, ...rest }: SettingsProps) {
         <SettingsItem label="语音和视频通话提醒" />
         <SettingsItem label="显示通知详情" />
         <SettingsItem label="声音" />
-        <SettingsItem label="查看已静音的好友列表" type="menu" />
+        <Link
+          to={`/settings/blocked`}
+          style={{
+            textDecoration: 'none',
+            color: 'inherit',
+          }}>
+          <SettingsItem label="查看已静音的好友列表" type="menu" />
+        </Link>
       </SettingsGroup>
     </StyledSettings>
   );

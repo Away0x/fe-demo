@@ -9,14 +9,21 @@ import Footer from 'components/Footer';
 import StyledConversation, { Conversations, MyChatBubble } from './style';
 
 interface ConversationProps {
+  onAvatarClick?: () => void;
+  onVideoClicked?: () => void;
   children?: React.ReactNode;
 }
 
 /* eslint-disable jsx-a11y/accessible-emoji */
-function Conversation({ children, ...rest }: ConversationProps) {
+function Conversation({
+  onAvatarClick,
+  onVideoClicked,
+  children,
+  ...rest
+}: ConversationProps) {
   return (
     <StyledConversation {...rest}>
-      <TitleBar />
+      <TitleBar onVideoClicked={onVideoClicked} onAvatarClick={onAvatarClick} />
       <Conversations>
         <ChatBubble time="昨天 下午14：26">Hi 小宇，忙什么呢？</ChatBubble>
         <MyChatBubble time="昨天 下午16：30">

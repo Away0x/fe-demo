@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Icon from 'components/Icon';
 import Text from 'components/Text';
@@ -20,10 +21,16 @@ interface BlockedListProps {
 }
 
 function BlockedList({ children, ...rest }: BlockedListProps) {
+  const history = useHistory();
+
   return (
     <StyledBlockedList {...rest}>
       <SettingsMenu>
-        <Icon icon={ArrowMenuLeft} style={{ cursor: 'pointer' }} />
+        <Icon
+          icon={ArrowMenuLeft}
+          style={{ cursor: 'pointer' }}
+          onClick={() => history.goBack()}
+        />
         <Text size="xxlarge">已屏蔽的好友</Text>
       </SettingsMenu>
       <FriendList>

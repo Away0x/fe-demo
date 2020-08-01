@@ -1,4 +1,5 @@
 import React, { CSSProperties } from 'react';
+import { Link, useLocation, matchPath } from 'react-router-dom';
 import {
   faCommentDots,
   faUsers,
@@ -15,20 +16,26 @@ import profileImage from 'assets/images/face-male-1.jpg';
 import StyledNavBar, { StyledMenuItem, MenuIcon, MenuItems } from './style';
 
 interface MenuItemProps {
-  active?: boolean;
+  to?: string;
   showBadge?: boolean;
   icon: any;
   style?: CSSProperties;
 }
 
-function MenuItem({ active, showBadge, icon, style, ...rest }: MenuItemProps) {
+function MenuItem({ to, icon, showBadge, ...rest }: MenuItemProps) {
+  const loc = useLocation();
+  const active = !!matchPath(loc.pathname, {
+    path: to,
+    exact: to === '/',
+  });
+
   return (
-    <StyledMenuItem active={active ? 1 : 0} style={style} {...rest}>
-      <a href="#/">
+    <StyledMenuItem active={active} {...rest}>
+      <Link to={to || ''}>
         <Badge show={showBadge}>
-          <MenuIcon active={active ? 1 : 0} icon={icon} />
+          <MenuIcon active={active} icon={icon} />
         </Badge>
-      </a>
+      </Link>
     </StyledMenuItem>
   );
 }
@@ -42,12 +49,13 @@ function NavBar({ children }: NavBarProps) {
     <StyledNavBar>
       <Avatar src={profileImage} status="online" />
       <MenuItems>
-        <MenuItem showBadge active icon={faCommentDots} />
-        <MenuItem icon={faUsers} />
-        <MenuItem icon={faFolder} />
-        <MenuItem icon={faStickyNote} />
+        <MenuItem to="/" showBadge icon={faCommentDots} />
+        <MenuItem to="/contacts" icon={faUsers} />
+        <MenuItem to="/files" icon={faFolder} />
+        <MenuItem to="/notes" icon={faStickyNote} />
         <MenuItem icon={faEllipsisH} />
         <MenuItem
+          to="/settings"
           icon={faCog}
           style={{
             alignSelf: 'end',

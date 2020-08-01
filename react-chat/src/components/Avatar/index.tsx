@@ -11,6 +11,7 @@ interface AvatarProps {
   size?: string;
   statusIconSize?: string;
   style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
 function Avatar({
@@ -19,10 +20,11 @@ function Avatar({
   status,
   statusIconSize = '8px',
   style,
+  onClick,
   ...rest
 }: AvatarProps) {
   return (
-    <StyledAvatar style={style} {...rest}>
+    <StyledAvatar style={style} {...rest} onClick={onClick}>
       {status && (
         <StatusIcon status={status} size={statusIconSize}></StatusIcon>
       )}

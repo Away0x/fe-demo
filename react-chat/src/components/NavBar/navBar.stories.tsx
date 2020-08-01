@@ -18,7 +18,7 @@ export const Menu = () => {
         backgroundColor: theme.darkPurple,
         width: '100px',
       }}>
-      <MenuItem showBadge active icon={faCommentDots} />
+      <MenuItem showBadge icon={faCommentDots} />
     </div>
   );
 };

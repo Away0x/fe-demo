@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import ChatApp from '.';
 
@@ -7,4 +8,8 @@ export default {
   component: ChatApp,
 };
 
-export const Default = () => <ChatApp>默认</ChatApp>;
+export const Default = () => (
+  <Router>
+    <ChatApp />
+  </Router>
+);

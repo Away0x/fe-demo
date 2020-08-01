@@ -12,6 +12,7 @@ interface IconProps {
   color?: string;
   opacity?: number;
   style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
 function Icon({
@@ -21,10 +22,16 @@ function Icon({
   style,
   width = 24,
   height = 24,
+  onClick,
   ...rest
 }: IconProps) {
   return (
-    <StyledIcon {...rest} color={color} opacity={opacity} style={style}>
+    <StyledIcon
+      {...rest}
+      color={color}
+      opacity={opacity}
+      style={style}
+      onClick={onClick}>
       {IconComponet && <IconComponet width={width} height={height} />}
     </StyledIcon>
   );

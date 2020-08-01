@@ -29,6 +29,7 @@ const typeVariants = {
     background-color: ${({ theme }) => theme.primaryColor};
     color: white;
   `,
+  hangoff: css<StyledButtonProps>``,
 };
 
 const StyledButton = styled.button<StyledButtonProps>`
