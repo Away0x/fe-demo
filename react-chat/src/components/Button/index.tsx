@@ -9,6 +9,7 @@ interface ButtonProps {
   shape?: Shapes;
   size?: string;
   bgColor?: string;
+  onClick?: () => void;
 }
 
 function Button({
@@ -17,6 +18,7 @@ function Button({
   size = '30px',
   bgColor,
   children,
+  onClick,
   ...rest
 }: ButtonProps) {
   return (
@@ -25,7 +27,8 @@ function Button({
       btntype={type}
       shape={shape}
       size={size}
-      bgColor={bgColor}>
+      bgColor={bgColor}
+      onClick={onClick}>
       {children}
     </StyledButton>
   );

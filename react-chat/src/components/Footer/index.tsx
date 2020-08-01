@@ -21,6 +21,7 @@ interface FooterProps {
 function Footer({ children, ...rest }: FooterProps) {
   const [emojiIconActive, setEmojiIconActive] = useState(false);
   const theme = useTheme();
+
   return (
     <StyledFooter {...rest}>
       <Input

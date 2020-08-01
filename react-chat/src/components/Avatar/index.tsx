@@ -10,6 +10,7 @@ interface AvatarProps {
   status?: StatusTypes;
   size?: string;
   statusIconSize?: string;
+  style?: React.CSSProperties;
 }
 
 function Avatar({
@@ -17,10 +18,11 @@ function Avatar({
   size = '48px',
   status,
   statusIconSize = '8px',
+  style,
   ...rest
 }: AvatarProps) {
   return (
-    <StyledAvatar {...rest}>
+    <StyledAvatar style={style} {...rest}>
       {status && (
         <StatusIcon status={status} size={statusIconSize}></StatusIcon>
       )}

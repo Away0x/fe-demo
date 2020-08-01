@@ -1,6 +1,7 @@
 import React, { FunctionComponent, SVGAttributes } from 'react';
 
 import StyledIcon from './style';
+import SocialIcon from './SocialIcon';
 
 type SVGReactComponent = FunctionComponent<SVGAttributes<any>>;
 
@@ -28,5 +29,7 @@ function Icon({
     </StyledIcon>
   );
 }
+
+Icon.Social = SocialIcon;
 
 export default Icon;

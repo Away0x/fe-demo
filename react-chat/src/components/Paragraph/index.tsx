@@ -7,11 +7,12 @@ import StyledParagraph from './style';
 interface ParagraphProps extends TextProps {
   ellipsis?: boolean;
   children: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
-function Paragraph({ ellipsis, children, ...rest }: ParagraphProps) {
+function Paragraph({ ellipsis, children, style, ...rest }: ParagraphProps) {
   return (
-    <StyledParagraph ellipsis={ellipsis} {...rest}>
+    <StyledParagraph ellipsis={ellipsis} style={style} {...rest}>
       {children}
     </StyledParagraph>
   );
