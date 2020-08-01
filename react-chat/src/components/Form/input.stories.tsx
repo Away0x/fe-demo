@@ -4,7 +4,7 @@ import Icon from 'components/Icon';
 import { ReactComponent as ClipIcon } from 'assets/icons/clip.svg';
 import { ReactComponent as SmileIcon } from 'assets/icons/smile.svg';
 
-import Input from '.';
+import Input from './Input';
 
 export default {
   title: '表单/Input',

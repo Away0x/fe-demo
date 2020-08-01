@@ -3,7 +3,7 @@ import React from 'react';
 import MessageList from '.';
 
 export default {
-  title: 'UI 组件/MessageList',
+  title: '列表/MessageList',
   component: MessageList,
 };
 

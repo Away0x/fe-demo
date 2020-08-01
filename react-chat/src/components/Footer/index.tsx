@@ -6,7 +6,7 @@ import { ReactComponent as SmileIcon } from 'assets/icons/smile.svg';
 import { ReactComponent as MicrophoneIcon } from 'assets/icons/microphone.svg';
 import { ReactComponent as PlaneIcon } from 'assets/icons/plane.svg';
 import { ReactComponent as OptionsIcon } from 'assets/icons/options.svg';
-import Input from 'components/Form';
+import Input from 'components/Form/Input';
 import Icon from 'components/Icon';
 import Button from 'components/Button';
 import Emoji from 'components/Icon/Emoji';

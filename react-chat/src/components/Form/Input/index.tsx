@@ -5,7 +5,7 @@ import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 import Icon from 'components/Icon';
 
 import StyledInput, { InputContainer, Prefix, Suffix } from './style';
-import InputText from './InputText';
+import InputText from '../InputText';
 
 interface InputProps {
   placeholder?: string;

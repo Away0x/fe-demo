@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import StyledPopover, { Content, Triangle, Target } from './style';
 
 interface PopoverProps {
-  content: React.ReactNode;
+  content?: React.ReactNode;
   offset?: { x?: string; y?: string };
   onVisible?: () => void;
   onHide?: () => void;
