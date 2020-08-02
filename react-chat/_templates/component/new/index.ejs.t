@@ -21,4 +21,4 @@ function <%= name %>({
   );
 }
 
-export default <%= name %>;
+export default React.memo(<%= name %>);

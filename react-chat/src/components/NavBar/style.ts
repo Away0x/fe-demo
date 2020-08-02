@@ -23,7 +23,7 @@ const StyledNavBar = styled.div`
 `;
 
 interface StyledMenuItemProps {
-  active: boolean;
+  active: 0 | 1;
 }
 
 const StyledMenuItem = styled.div<StyledMenuItemProps>`

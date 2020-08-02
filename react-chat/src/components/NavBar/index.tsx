@@ -30,10 +30,10 @@ function MenuItem({ to, icon, showBadge, ...rest }: MenuItemProps) {
   });
 
   return (
-    <StyledMenuItem active={active} {...rest}>
+    <StyledMenuItem active={active ? 1 : 0} {...rest}>
       <Link to={to || ''}>
         <Badge show={showBadge}>
-          <MenuIcon active={active} icon={icon} />
+          <MenuIcon active={active ? 1 : 0} icon={icon} />
         </Badge>
       </Link>
     </StyledMenuItem>

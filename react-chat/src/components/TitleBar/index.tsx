@@ -19,16 +19,18 @@ interface TitleBarProps {
   onAvatarClick?: () => void;
   onVideoClicked?: () => void;
   children?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 function TitleBar({
   onAvatarClick,
   onVideoClicked,
   children,
+  style,
   ...rest
 }: TitleBarProps) {
   return (
-    <StyledTitleBar {...rest}>
+    <StyledTitleBar {...rest} style={style}>
       <Avatar onClick={onAvatarClick} status="offline" src={face} />
       <Title>
         <Paragraph size="large">慕容天宇</Paragraph>

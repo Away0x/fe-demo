@@ -16,14 +16,15 @@ import StyledFooter, { IconContainer, StyledPopoverContent } from './style';
 
 interface FooterProps {
   children?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
-function Footer({ children, ...rest }: FooterProps) {
+function Footer({ style, children, ...rest }: FooterProps) {
   const [emojiIconActive, setEmojiIconActive] = useState(false);
   const theme = useTheme();
 
   return (
-    <StyledFooter {...rest}>
+    <StyledFooter {...rest} style={style}>
       <Input
         placeholder="输入想和对方说的话"
         prefix={<Icon icon={ClipIcon} />}
