@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+
+import useClickOutside from 'tools/hooks/useClickOutside';
 
 import { Align } from './type';
 import StyledDropdown, { DropdownContainer } from './style';
@@ -15,10 +17,15 @@ function Dropdown({
   children,
   ...rest
 }: DropdownProps) {
+  const elRef = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
+  useClickOutside(elRef, () => {
+    setVisible(false);
+  });
+
   return (
-    <StyledDropdown onClick={() => setVisible(!visible)} {...rest}>
+    <StyledDropdown ref={elRef} onClick={() => setVisible(!visible)} {...rest}>
       {children}
       {content && (
         <DropdownContainer align={align} visible={visible}>

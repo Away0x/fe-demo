@@ -17,7 +17,7 @@ import StyledFileCard, {
   FileIcon,
 } from './style';
 
-const fileIcons = {
+const fileIcons: { [k: string]: any } = {
   zip: FileZip,
   image: FileImage,
   pdf: FilePdf,
@@ -27,19 +27,30 @@ const fileIcons = {
 };
 
 interface FileCardProps {
+  name?: string;
+  size?: string;
+  updatedAt?: string;
+  type: string;
   children?: React.ReactNode;
 }
 
-function FileCard({ children, ...rest }: FileCardProps) {
+function FileCard({
+  name,
+  size,
+  updatedAt,
+  type,
+  children,
+  ...rest
+}: FileCardProps) {
   return (
     <StyledFileCard {...rest}>
-      <FileIcon icon={fileIcons.zip} />
-      <FileName>Source Code.zip</FileName>
-      <FileSize>1.5M</FileSize>
+      <FileIcon icon={fileIcons[type]} />
+      <FileName>{name}</FileName>
+      <FileSize>{size}</FileSize>
       <Options>
         <Icon icon={OptionsIcon} opacity={0.3} />
       </Options>
-      <Time>2019年02月03日</Time>
+      <Time>{updatedAt}</Time>
     </StyledFileCard>
   );
 }

@@ -5,7 +5,8 @@ import Icon from 'components/Icon';
 import Text from 'components/Text';
 import { ReactComponent as ArrowMenuLeft } from 'assets/icons/arrowMenuLeft.svg';
 import { ReactComponent as closeCircle } from 'assets/icons/closeCircle.svg';
-import face from 'assets/images/face-male-1.jpg';
+
+import blockedData from 'data/blocked';
 
 import StyledBlockedList, {
   SettingsMenu,
@@ -34,12 +35,12 @@ function BlockedList({ children, ...rest }: BlockedListProps) {
         <Text size="xxlarge">已屏蔽的好友</Text>
       </SettingsMenu>
       <FriendList>
-        {new Array(8).fill(0).map((_, i) => {
+        {blockedData.map((blocked) => {
           return (
-            <ClosableAvatar key={i}>
-              <BlockedAvatar size="105px" src={face} />
+            <ClosableAvatar key={blocked.id}>
+              <BlockedAvatar size="105px" src={blocked.avatar} />
               <CloseIcon width={46} height={51} icon={closeCircle} />
-              <BlockedName>李浩</BlockedName>
+              <BlockedName>{blocked.name}</BlockedName>
             </ClosableAvatar>
           );
         })}

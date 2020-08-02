@@ -1,7 +1,5 @@
 import React from 'react';
 
-import note1 from 'assets/images/note-1.jpg';
-
 import StyledNoteCard, {
   NoteImage,
   NoteTitle,
@@ -10,16 +8,27 @@ import StyledNoteCard, {
 } from './style';
 
 interface NoteCardProps {
+  image: string;
+  title?: string;
+  excerpt?: string;
+  publishedAt?: string;
   children?: React.ReactNode;
 }
 
-function NoteCard({ children, ...rest }: NoteCardProps) {
+function NoteCard({
+  image,
+  title,
+  excerpt,
+  publishedAt,
+  children,
+  ...rest
+}: NoteCardProps) {
   return (
     <StyledNoteCard {...rest}>
-      <NoteImage src={note1} />
-      <NoteTitle>这是笔记标题</NoteTitle>
-      <NoteExcerpt>这是笔记内容摘要</NoteExcerpt>
-      <NotePublishTime>2020-02-08</NotePublishTime>
+      <NoteImage src={image} />
+      <NoteTitle>{title}</NoteTitle>
+      <NoteExcerpt>{excerpt}</NoteExcerpt>
+      <NotePublishTime>{publishedAt}</NotePublishTime>
     </StyledNoteCard>
   );
 }

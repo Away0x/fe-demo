@@ -1,5 +1,7 @@
 import React from 'react';
 
+import contactsData from 'data/contacts';
+
 import ContactCard from '.';
 
 export default {
@@ -7,4 +9,4 @@ export default {
   component: ContactCard,
 };
 
-export const Default = () => <ContactCard />;
+export const Default = () => <ContactCard {...(contactsData[0] as any)} />;

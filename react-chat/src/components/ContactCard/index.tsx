@@ -1,20 +1,31 @@
 import React from 'react';
 
 import Avatar from 'components/Avatar';
-import face from 'assets/images/face-male-1.jpg';
+import { StatusTypes } from 'components/Avatar/type';
 
 import StyledContactCard, { Intro, Name } from './style';
 
 interface ContactCardProps {
+  status?: StatusTypes;
+  avatar: string;
+  intro?: string;
+  name?: string;
   children?: React.ReactNode;
 }
 
-function ContactCard({ children, ...rest }: ContactCardProps) {
+function ContactCard({
+  status = 'online',
+  avatar,
+  intro,
+  name,
+  children,
+  ...rest
+}: ContactCardProps) {
   return (
     <StyledContactCard {...rest}>
-      <Avatar src={face} status="online" />
-      <Name>李浩</Name>
-      <Intro>我是前端工程师</Intro>
+      <Avatar src={avatar} status={status} />
+      <Name>{name}</Name>
+      <Intro>{intro}</Intro>
     </StyledContactCard>
   );
 }

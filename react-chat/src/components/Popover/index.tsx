@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+
+import useClickOutside from 'tools/hooks/useClickOutside';
 
 import StyledPopover, { Content, Triangle, Target } from './style';
 
@@ -18,20 +20,27 @@ function Popover({
   children,
   ...rest
 }: PopoverProps) {
+  const elRef = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
   const handleClick = () => {
-    if (visible) {
-      setVisible(false);
-      onHide && onHide();
-    } else {
-      setVisible(true);
-      onVisible && onVisible();
-    }
+    setVisible(!visible);
   };
 
+  useClickOutside(elRef, () => {
+    setVisible(false);
+  });
+
+  useEffect(() => {
+    if (visible) {
+      onVisible && onVisible();
+    } else {
+      onHide && onHide();
+    }
+  }, [visible, onHide, onVisible]);
+
   return (
-    <StyledPopover onClick={handleClick} {...rest}>
+    <StyledPopover ref={elRef} onClick={handleClick} {...rest}>
       <Content visible={visible} offset={offset}>
         {content}
       </Content>

@@ -5,6 +5,8 @@ import FilterList from 'components/FilterList';
 import FileCard from 'components/FileCard';
 import useStaggeredList from 'tools/hooks/useStaggeredList';
 
+import filesData from 'data/files';
+
 import StyledFileList, { Files } from './style';
 
 interface FileListProps {
@@ -12,15 +14,20 @@ interface FileListProps {
 }
 
 function FileList({ children, ...rest }: FileListProps) {
-  const trailAnimes = useStaggeredList(7);
+  const trailAnimes = useStaggeredList(filesData.length);
 
   return (
     <StyledFileList {...rest}>
       <FilterList options={['最新文件优先', '按文件名排序']}>
         <Files>
-          {new Array(7).fill(0).map((_, i) => (
-            <animated.div key={i} style={trailAnimes[i]}>
-              <FileCard />
+          {filesData.map((file, i) => (
+            <animated.div key={file.id} style={trailAnimes[i]}>
+              <FileCard
+                name={file.name}
+                size={file.size}
+                type={file.type}
+                updatedAt={file.updatedAt}
+              />
             </animated.div>
           ))}
         </Files>

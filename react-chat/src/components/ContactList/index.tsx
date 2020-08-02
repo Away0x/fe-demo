@@ -5,6 +5,8 @@ import FilterList from 'components/FilterList';
 import ContactCard from 'components/ContactCard';
 import useStaggeredList from 'tools/hooks/useStaggeredList';
 
+import contactsData from 'data/contacts';
+
 import StyledContactList, { Contacts } from './style';
 
 interface ContactListProps {
@@ -12,15 +14,20 @@ interface ContactListProps {
 }
 
 function ContactList({ children, ...rest }: ContactListProps) {
-  const trailAnimes = useStaggeredList(7);
+  const trailAnimes = useStaggeredList(contactsData.length);
 
   return (
     <StyledContactList {...rest}>
       <FilterList options={['新添加优先', '按姓名排序']} actionLabel="添加好友">
         <Contacts>
-          {new Array(7).fill(0).map((_, i) => (
-            <animated.div key={i} style={trailAnimes[i]}>
-              <ContactCard />
+          {contactsData.map((contact: any, i) => (
+            <animated.div key={contact.id} style={trailAnimes[i]}>
+              <ContactCard
+                status={contact.status}
+                avatar={contact.avatar}
+                intro={contact.intro}
+                name={contact.name}
+              />
             </animated.div>
           ))}
         </Contacts>

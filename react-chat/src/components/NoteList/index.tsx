@@ -5,6 +5,8 @@ import FilterList from 'components/FilterList';
 import NoteCard from 'components/NoteCard';
 import useStaggeredList from 'tools/hooks/useStaggeredList';
 
+import notesData from 'data/notes';
+
 import StyledNoteList, { Notes } from './style';
 
 interface NoteListProps {
@@ -12,7 +14,7 @@ interface NoteListProps {
 }
 
 function NoteList({ children, ...rest }: NoteListProps) {
-  const trailAnimes = useStaggeredList(7);
+  const trailAnimes = useStaggeredList(notesData.length);
 
   return (
     <StyledNoteList {...rest}>
@@ -20,9 +22,14 @@ function NoteList({ children, ...rest }: NoteListProps) {
         options={['最新笔记优先', '有改动的优先']}
         actionLabel="添加笔记">
         <Notes>
-          {new Array(7).fill(0).map((_, i) => (
-            <animated.div key={i} style={trailAnimes[i]}>
-              <NoteCard />
+          {notesData.map((note, i) => (
+            <animated.div key={note.id} style={trailAnimes[i]}>
+              <NoteCard
+                image={note.image}
+                title={note.title}
+                excerpt={note.excerpt}
+                publishedAt={note.publishedAt}
+              />
             </animated.div>
           ))}
         </Notes>
