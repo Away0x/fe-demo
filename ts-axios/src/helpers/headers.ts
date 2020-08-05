@@ -1,4 +1,5 @@
-import { isPlainObject } from './utils'
+import { Method } from '../types'
+import { isPlainObject, deepMerge } from './utils'
 
 /**
  * 因为请求 header 属性是大小写不敏感的，
@@ -53,4 +54,32 @@ export function parseHeaders(headers: string): any {
   })
 
   return parsed
+}
+
+// 默认 headers 配置是这样的
+// headers: {
+//   common: {
+//     Accept: 'application/json, text/plain, */*'
+//   },
+//   post: {
+//     'Content-Type': 'application/x-www-form-urlencoded'
+//   }
+// }
+// 下面的方法会将配置铺平
+// headers: {
+//   Accept: 'application/json, text/plain, */*',
+//   'Content-Type': 'application/x-www-form-urlencoded'
+// }
+export function flattenHeaders(headers: any, method: Method): any {
+  if (!headers) return headers
+
+  headers = deepMerge(headers.common, headers[method], headers)
+
+  const methodsToDelete = ['delete', 'get', 'head', 'options', 'post', 'put', 'patch', 'common']
+
+  methodsToDelete.forEach(method => {
+    delete headers[method]
+  })
+
+  return headers
 }
