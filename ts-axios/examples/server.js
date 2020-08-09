@@ -211,7 +211,7 @@ function registerMoreRouter() {
     const [username, password] = atob(credentials)
       .split(':')
       .map(item => item.trim())
-    if (type === 'Basic' && username === 'chen' && password === '123456') {
+    if (type === 'Basic' && username === 'wt' && password === '123456') {
       res.json(req.body)
     } else {
       res.status(401)
