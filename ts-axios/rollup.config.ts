@@ -10,16 +10,21 @@ const pkg = require('./package.json')
 const libraryName = 'ts-axios'
 
 export default {
-  input: `src/${libraryName}.ts`,
+  // 打包入口文件
+  input: `src/index.ts`,
+  // 输出文件
   output: [
     { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true },
-    { file: pkg.module, format: 'es', sourcemap: true },
+    { file: pkg.module, format: 'es', sourcemap: true }
   ],
+  // 外部依赖
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: [],
+  // 监听文件变化
   watch: {
-    include: 'src/**',
+    include: 'src/**'
   },
+  // 打包时依赖的插件
   plugins: [
     // Allow json resolution
     json(),
@@ -33,6 +38,6 @@ export default {
     resolve(),
 
     // Resolve source maps to the original source
-    sourceMaps(),
-  ],
+    sourceMaps()
+  ]
 }

@@ -1,15 +1,21 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const mutipart = require('connect-multiparty')
+const atob = require('atob')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const WebpackConfig = require('./webpack.config')
+const path = require('path')
+
+require('./server2')
 
 const app = express()
-const compiler = webpack(WebpackConfig)
+const complier = webpack(WebpackConfig)
 
 app.use(
-  webpackDevMiddleware(compiler, {
+  webpackDevMiddleware(complier, {
     publicPath: '/__build__/',
     stats: {
       colors: true,
@@ -18,13 +24,32 @@ app.use(
   })
 )
 
-app.use(webpackHotMiddleware(compiler))
+app.use(webpackHotMiddleware(complier))
+app.use(
+  express.static(__dirname, {
+    setHeaders(res) {
+      res.cookie(
+        'XSRF-TOKEN-D',
+        Math.random()
+          .toString(16)
+          .slice(2)
+      )
+    }
+  })
+)
 
 app.use(express.static(__dirname))
 
 app.use(bodyParser.json())
-// app.use(bodyParser.text())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cookieParser())
+
+// 用于将文件上传到指定文件
+app.use(
+  mutipart({
+    uploadDir: path.resolve(__dirname, 'accept-upload-file')
+  })
+)
 
 const router = express.Router()
 
@@ -36,7 +61,7 @@ registerErrorRouter()
 
 registerExtendRouter()
 
-registerInterceptorRouter()
+registerInterceptorRrouter()
 
 registerConfigRouter()
 
@@ -56,7 +81,7 @@ module.exports = app.listen(port, () => {
 function registerSimpleRouter() {
   router.get('/simple/get', function(req, res) {
     res.json({
-      msg: `hello world`
+      msg: 'hello world'
     })
   })
 }
@@ -88,18 +113,17 @@ function registerErrorRouter() {
   router.get('/error/get', function(req, res) {
     if (Math.random() > 0.5) {
       res.json({
-        msg: `hello world`
+        msg: 'hello world'
       })
     } else {
       res.status(500)
       res.end()
     }
   })
-
   router.get('/error/timeout', function(req, res) {
     setTimeout(() => {
       res.json({
-        msg: `hello world`
+        msg: 'hello world'
       })
     }, 3000)
   })
@@ -116,11 +140,11 @@ function registerExtendRouter() {
     res.end()
   })
 
-  router.delete('/extend/delete', function(req, res) {
+  router.head('/extend/head', function(req, res) {
     res.end()
   })
 
-  router.head('/extend/head', function(req, res) {
+  router.delete('/extend/delete', function(req, res) {
     res.end()
   })
 
@@ -136,21 +160,22 @@ function registerExtendRouter() {
     res.json(req.body)
   })
 
+  // 响应数据支持泛型接口
   router.get('/extend/user', function(req, res) {
     res.json({
       code: 0,
       message: 'ok',
       result: {
-        name: 'jack',
+        name: 'Alice',
         age: 18
       }
     })
   })
 }
 
-function registerInterceptorRouter() {
+function registerInterceptorRrouter() {
   router.get('/interceptor/get', function(req, res) {
-    res.end('hello')
+    res.end('hello ')
   })
 }
 

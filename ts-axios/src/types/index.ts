@@ -22,13 +22,14 @@ export interface AxiosRequestConfig {
   headers?: any
   responseType?: XMLHttpRequestResponseType
   timeout?: number
-  // 修改默认配置
+  // 拦截器 (可修改配置和响应)
   transformRequest?: AxiosTransformer | AxiosTransformer[]
   transformResponse?: AxiosTransformer | AxiosTransformer[]
   // 取消请求
   cancelToken?: CancelToken
   // cookie
   withCredentials?: boolean
+  // csrf
   xsrfCookieName?: string
   xsrfHeaderName?: string
   // 上传下载
@@ -38,8 +39,8 @@ export interface AxiosRequestConfig {
   auth?: AxiosBasicCredentials
   validateStatus?: (status: number) => boolean
   paramsSerializer?: (params: any) => string
-  baseURL?: string
 
+  baseURL?: string
   [propName: string]: any
 }
 

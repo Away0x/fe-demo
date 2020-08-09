@@ -1,6 +1,8 @@
 import { AxiosRequestConfig, AxiosPromise, AxiosResponse } from '../types'
 import { parseHeaders } from '../helpers/headers'
 import { createError } from '../helpers/error'
+import { isURLSameOrigin } from '../helpers/url'
+import cookie from '../helpers/cookie'
 
 export default function xhr(config: AxiosRequestConfig): AxiosPromise {
   return new Promise((resolve, reject) => {
@@ -29,6 +31,10 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
 
     if (timeout) {
       request.timeout = timeout
+    }
+
+    if (withCredentials) {
+      request.withCredentials = withCredentials
     }
 
     request.open(method.toUpperCase(), url!, true)
@@ -67,6 +73,13 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
       )
     }
 
+    if ((withCredentials || isURLSameOrigin(url!)) && xsrfCookieName) {
+      const xsrfValue = cookie.read(xsrfCookieName)
+      if (xsrfValue) {
+        headers[xsrfHeaderName!] = xsrfValue
+      }
+    }
+
     Object.keys(headers).forEach(name => {
       if (data === null && name.toLowerCase() === 'content-type') {
         delete headers[name]
@@ -82,7 +95,12 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
           request.abort()
           reject(reason)
         })
-        .catch(console.warn)
+        .catch(
+          /** istanbul ignore next */
+          err => {
+            console.warn(err)
+          }
+        )
     }
 
     request.send(data)
