@@ -11,7 +11,7 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
       data = null,
       url,
       method = 'get',
-      headers,
+      headers = {},
       responseType,
       timeout,
       cancelToken,
@@ -54,7 +54,8 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
         const responseHeaders = parseHeaders(request.getAllResponseHeaders())
 
         // 根据传入的 responseType 来决定返回的数据
-        const responseData = responseType === 'text' ? request.responseText : request.response
+        const responseData =
+          responseType && responseType !== 'text' ? request.response : request.responseText
 
         const response: AxiosResponse = {
           data: responseData,

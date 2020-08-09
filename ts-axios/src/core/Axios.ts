@@ -6,7 +6,7 @@ import {
   ResolvedFn,
   RejectedFn
 } from '../types'
-import dispatchRequest from './dispatchRequest'
+import dispatchRequest, { transformURL } from './dispatchRequest'
 import InterceptorManager from './InterceptorManager'
 import mergeConfig from './mergeConfig'
 
@@ -44,6 +44,7 @@ export default class Axios {
     }
 
     config = mergeConfig(this.defaults, config)
+    config.method = config.method.toLowerCase()
 
     const chain: PromiseChain<any>[] = [
       {
@@ -53,10 +54,12 @@ export default class Axios {
     ]
 
     this.interceptors.request.forEach(interceptor => {
+      // request 拦截器先添加的后执行
       chain.unshift(interceptor)
     })
 
     this.interceptors.response.forEach(interceptor => {
+      // response 拦截器先添加的先执行
       chain.push(interceptor)
     })
 
@@ -96,6 +99,11 @@ export default class Axios {
 
   patch(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise {
     return this._requestMethodWithData('patch', url, data, config)
+  }
+
+  getUri(config?: AxiosRequestConfig): string {
+    config = mergeConfig(this.defaults, config)
+    return transformURL(config)
   }
 
   _requestMethodWithoutData(
