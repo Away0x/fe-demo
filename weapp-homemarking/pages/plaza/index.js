@@ -1,6 +1,5 @@
 Page({
     data: {
-        currentTabIndex: 0,
         tabs: ['全部服务', '在提供', '正在找'],
         categoryList: [
             {
@@ -18,13 +17,9 @@ Page({
         ],
     },
     handleTabChange(ev) {
-        const index = ev.currentTarget.dataset.index
-        this.setData({
-            currentTabIndex: index
-        })
+        console.log(ev)
     },
     handleCategoryChange(ev) {
-        const id = ev.currentTarget.dataset.id
-        console.log(id)
+        console.log(ev)
     }
 })

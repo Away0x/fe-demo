@@ -45,6 +45,10 @@
           }
       ]
   },
+  "usingComponents": {
+    "i-tabs": "/components/tabs/index",
+    "i-safe-area": "/components/safe-area/index"
+  },
   "useExtendedLib": {
     "weui": true
   },

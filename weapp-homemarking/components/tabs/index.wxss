@@ -1,0 +1,53 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.tabs {
+    padding: 30rpx 0;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+
+.tab-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.tab-label {
+    color: #888888;
+    white-space: nowrap
+}
+
+.active-tab {
+    font-weight: bold;
+    color: #333333;
+}
+
+.divider {
+    margin-top: 10rpx;
+    height: 6rpx;
+    width: 50rpx;
+    background-color: #f3d066;
+    font-weight: bold;
+}
+
+.extend {
+    height: 210rpx;
+}
+
+.tab-planel {
+    flex: 1;
+    padding-top: 30rpx;
+}
+
