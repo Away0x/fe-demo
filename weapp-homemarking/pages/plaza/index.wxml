@@ -8,7 +8,7 @@
 			<view class="category">
 				<swiper
 				 style="height: 150rpx"
-				 display-multiple-items="2"
+				 display-multiple-items="{{multiple}}"
 				 next-margin="60rpx"
 				>
 					<swiper-item
@@ -24,8 +24,20 @@
 				</swiper>
 			</view>
 		</view>
-		<view slot="plan">
-			<view>asd</view>
+		<view slot="panel">
+			<view
+			 class="service-preview"
+			 wx:for="{{serviceList}}"
+			 wx:key="index"
+			 data-skeleton-list
+			>
+				<i-service-preview service="{{item}}" bind:select="handleSelect" />
+			</view>
+			<i-show-status
+			 show="{{showStatus}}"
+			 top="220"
+			 content="暂时还没有任何服务"
+			/>
 		</view>
 	</i-tabs>
 </view>

@@ -1,5 +1,4 @@
 <wxs src="../../common/wxs/touchmove.wxs" module="handleTouch" />
-
 <view class="container">
 	<view class="tabs">
 		<view
@@ -23,7 +22,7 @@
 	 bind:touchstart="{{handleTouch.handleTouchStart}}"
 	 bind:touchend="{{handleTouch.handleTouchEnd}}"
 	>
-		<slot name="plan" />
+		<slot name="panel" />
 		<i-safe-area area="bottom" />
 	</view>
 </view>

@@ -1,0 +1,11 @@
+<view
+ class="container"
+ wx:if="{{show}}"
+ style="margin-top: {{top}}rpx;"
+>
+	{{content}}
+	<view class="extend">
+		<slot/>
+	</view>
+</view>
+

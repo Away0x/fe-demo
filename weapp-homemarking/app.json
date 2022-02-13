@@ -1,57 +1,56 @@
 {
-  "pages": [
-      "pages/plaza/index",
-      "pages/message/index",
-      "pages/my/index",
-      "pages/publish/index"
-  ],
-  "window": {
-    "backgroundColor": "#ffffff",
-    "backgroundColorTop": "#ffffff",
-    "backgroundColorBottom": "#efefef",
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "慕慕到家",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-      "borderStyle": "white",
-      "selectedColor": "#FBC02D",
-      "color": "#8a8a8a",
-      "list": [
-          {
-              "pagePath": "pages/plaza/index",
-              "text": "广场",
-              "selectedIconPath": "images/tabbar/square-selected.png",
-              "iconPath": "images/tabbar/square.png"
-          },
-          {
-              "pagePath": "pages/publish/index",
-              "text": "发布",
-              "selectedIconPath": "images/tabbar/publish-selected.png",
-              "iconPath": "images/tabbar/publish.png"
-          },
-          {
-              "pagePath": "pages/message/index",
-              "text": "消息",
-              "selectedIconPath": "images/tabbar/message-selected.png",
-              "iconPath": "images/tabbar/message.png"
-          },
-          {
-              "pagePath": "pages/my/index",
-              "text": "我的",
-              "selectedIconPath": "images/tabbar/my-selected.png",
-              "iconPath": "images/tabbar/my.png"
-          }
-      ]
-  },
-  "usingComponents": {
-    "i-tabs": "/components/tabs/index",
-    "i-safe-area": "/components/safe-area/index"
-  },
-  "useExtendedLib": {
-    "weui": true
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": ["pages/plaza/index", "pages/message/index", "pages/my/index", "pages/publish/index"],
+    "window": {
+        "backgroundColor": "#ffffff",
+        "backgroundColorTop": "#ffffff",
+        "backgroundColorBottom": "#efefef",
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "慕慕到家",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "borderStyle": "white",
+        "selectedColor": "#FBC02D",
+        "color": "#8a8a8a",
+        "list": [
+            {
+                "pagePath": "pages/plaza/index",
+                "text": "广场",
+                "selectedIconPath": "images/tabbar/square-selected.png",
+                "iconPath": "images/tabbar/square.png"
+            },
+            {
+                "pagePath": "pages/publish/index",
+                "text": "发布",
+                "selectedIconPath": "images/tabbar/publish-selected.png",
+                "iconPath": "images/tabbar/publish.png"
+            },
+            {
+                "pagePath": "pages/message/index",
+                "text": "消息",
+                "selectedIconPath": "images/tabbar/message-selected.png",
+                "iconPath": "images/tabbar/message.png"
+            },
+            {
+                "pagePath": "pages/my/index",
+                "text": "我的",
+                "selectedIconPath": "images/tabbar/my-selected.png",
+                "iconPath": "images/tabbar/my.png"
+            }
+        ]
+    },
+    "usingComponents": {
+        "i-tabs": "/components/tabs/index",
+        "i-safe-area": "/components/safe-area/index",
+        "i-service-preview": "/components/service-preview/index",
+        "i-show-status": "/components/show-status/index",
+        "i-icon": "/components/icon/index",
+        "i-avatar": "/components/avatar/index"
+    },
+    "useExtendedLib": {
+        "weui": true
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }
