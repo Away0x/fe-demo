@@ -44,7 +44,8 @@
         "disableUseStrict": false,
         "minifyWXML": true,
         "showES6CompileOption": false,
-        "useCompilerPlugins": false
+        "useCompilerPlugins": false,
+        "skeletonGenerateFilesWithoutConfirm": true
     },
     "compileType": "miniprogram",
     "libVersion": "2.19.4",
