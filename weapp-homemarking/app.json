@@ -1,5 +1,11 @@
 {
-    "pages": ["pages/plaza/index", "pages/message/index", "pages/my/index", "pages/publish/index"],
+    "pages": [
+        "pages/plaza/index",
+        "pages/message/index",
+        "pages/my/index",
+        "pages/publish/index",
+        "pages/service-detail/index"
+    ],
     "window": {
         "backgroundColor": "#ffffff",
         "backgroundColorTop": "#ffffff",
@@ -46,7 +52,10 @@
         "i-service-preview": "/components/service-preview/index",
         "i-show-status": "/components/show-status/index",
         "i-icon": "/components/icon/index",
-        "i-avatar": "/components/avatar/index"
+        "i-avatar": "/components/avatar/index",
+        "i-button": "/components/button/index",
+        "i-rating-item": "/components/rating-item/index",
+        "i-rating": "/components/rating/index"
     },
     "useExtendedLib": {
         "weui": true

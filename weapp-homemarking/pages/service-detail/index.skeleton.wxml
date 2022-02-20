@@ -1,0 +1,100 @@
+<!--
+此文件为开发者工具生成，生成时间: 2022/2/20 下午10:43:39
+使用方法：
+在 /Users/wutong/Desktop/playground/fe-demo/weapp-homemarking/pages/service-detail/index.wxml 引入模板
+
+```
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 /Users/wutong/Desktop/playground/fe-demo/weapp-homemarking/pages/service-detail/index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="container">
+      <view class="service-container">
+        <view class="service-info">
+          <view class="cover-image">
+            <image mode="widthFix" style="height: 175px;" class="sk-image"></image>
+          </view>
+          <view class="row">
+            <view class="title sk-transparent sk-text-14-2857-321 sk-text">维修显示器</view>
+            <view class="category">
+              <view is="components/icon/index">
+                <view class="icon-index--iconfont icon-index--icon-biaoqian sk-pseudo sk-pseudo-circle" style="font-size:17px;color:#f27013;"></view>
+              </view>
+              <view class="tag-text sk-transparent sk-text-14-2857-185 sk-text">家电维修</view>
+            </view>
+          </view>
+          <view class="row">
+            <view class="publisher">
+              <view is="components/avatar/index">
+                <view class="avatar-index--container">
+                  <view class="avatar-index--avatar">
+                    <image class="avatar-index--avatar-image sk-image" style="width: 30px;height: 30px;border-radius: 50%"></image>
+                  </view>
+                  <view class="avatar-index--nickname sk-transparent sk-text-14-2857-675 sk-text" style="font-size: 14px">Iron ox😈</view>
+                </view>
+              </view>
+            </view>
+            <view class="score sk-transparent sk-text-14-2857-192 sk-text">
+              ★ 0
+            </view>
+          </view>
+          <view class="row">
+            <view class="create-time sk-transparent sk-text-14-2857-709 sk-text">2021-12-16 10:27:42</view>
+          </view>
+          <view class="row row-space-between">
+            <view class="price sk-transparent">
+              <text class="label sk-transparent sk-opacity">￥</text> 198.00
+            </view>
+          </view>
+          <view class="row">
+            <view class="description sk-transparent sk-text-14-2857-121 sk-text">维修显示器，修复速度快，体验好11111</view>
+          </view>
+        </view>
+        <view class="service-rating">
+          <view class="service-rating-title sk-transparent sk-text-14-2857-786 sk-text" style="border: none;">历史评价</view>
+          <view>
+            <view is="components/show-status/index">
+              <view class="status-index--container sk-transparent" style="margin-top: 75px;">
+                暂时还没有任何评价
+                <view class="status-index--extend"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="action-bar" style="border: none;">
+        <view class="action-bar-item">
+          <view is="components/button/index">
+            <label for="imooc">
+              <view class="index--i-button index--shape-square index--medium index--i-class sk-transparent" style="background-color:#fff;color:#333333;">
+                <view is="components/icon/index" style="margin-right:5px">
+                  <view class="icon-index--iconfont icon-index--icon-telephone sk-pseudo sk-pseudo-circle" style="font-size:17px;color:#333333;"></view>
+                </view>
+                联系对方
+              </view>
+            </label>
+          </view>
+          <view is="components/button/index">
+            <label for="imooc">
+              <view class="index--i-button index--shape-semicircle index--medium index--i-class sk-transparent sk-text-14-2857-902 sk-text" style="background-color:#f3d066;color:#333333;">
+                立即预约
+              </view>
+            </label>
+          </view>
+        </view>
+        <view is="components/safe-area/index">
+          <view class="area-index--safe-area-bottom"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

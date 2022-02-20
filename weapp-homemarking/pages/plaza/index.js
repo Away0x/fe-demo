@@ -43,6 +43,12 @@ Page({
         if (categoryId === this.data.currentCategoryId) return;
         this.getServiceList(this.data.currentTabIndex, categoryId);
     },
+    handleSelect(ev) {
+        const service = ev.detail.service;
+        wx.navigateTo({
+            url: `/pages/service-detail/index?id=${service.id}`,
+        });
+    },
     handleScrollToTop: function () {
         wx.pageScrollTo({ scrollTop: 0 });
     },

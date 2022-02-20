@@ -1,0 +1,134 @@
+<wxs src="/common/wxs/status-text.wxs" module="statusText" />
+<import src="index.skeleton.wxml" />
+<template is="skeleton" wx:if="{{!service}}" />
+<view class="container">
+	<view class="service-container">
+		<view class="service-info">
+			<view class="cover-image">
+				<image mode="widthFix" src="{{service.cover_image.path}}" />
+			</view>
+			<view class="row">
+				<view class="title">{{service.title}}</view>
+				<view class="category">
+					<i-icon name="biaoqian" color="#f27013" />
+					<view class="tag-text">{{service.category.name}}</view>
+				</view>
+			</view>
+			<view class="row">
+				<view class="publisher">
+					<i-avatar
+					 shape="circle"
+					 src="{{service.publisher.avatar}}"
+					 text="{{service.publisher.nickname}}"
+					 size="60"
+					/>
+				</view>
+				<view wx:if="{{service.type === serviceType.PROVIDE}}" class="score">
+					★ {{service.score}}
+				</view>
+			</view>
+			<view class="row">
+				<view class="create-time">{{service.create_time}}</view>
+			</view>
+			<view class="row row-space-between">
+				<view class="price">
+					<text class="label">￥</text>
+					{{service.price}}
+				</view>
+				<view class="sales-volume" wx:if="{{service.type === service.type === serviceType.PROVIDE}}">
+					已售 {{service.sales_volume}}
+				</view>
+			</view>
+			<view class="row">
+				<view class="description">{{service.description}}</view>
+			</view>
+		</view>
+		<view wx:if="{{isPublisher}}" class="service-status">
+			<view>服务状态</view>
+			<view>{{statusText.convert(service.status)}}</view>
+		</view>
+		<view wx:if="{{service.type === serviceType.PROVIDE}}" class="service-rating">
+			<view class="service-rating-title">历史评价</view>
+			<view class="service-rating-list" wx:if="{{ratingList.length}}">
+				<view
+				 class="rating-item"
+				 wx:for="{{ratingList}}"
+				 wx:key="index"
+				>
+					<i-rating-item rating="{{item}}" bind:preview="handlePreview" />
+				</view>
+			</view>
+			<view wx:else>
+				<i-show-status
+				 show
+				 top="150"
+				 content="暂时还没有任何评价"
+				/>
+			</view>
+		</view>
+	</view>
+	<view class="action-bar" wx:if="{{service}}">
+		<view class="action-bar-item">
+			<block wx:if="{{isPublisher}}">
+				<i-button
+				 wx:if="{{service.status !== ServiceStatus.CANCELED && service.status !== ServiceStatus.OFF_SHELVES}}"
+				 bgColor="#fff"
+				 border
+				 shape="semicircle"
+				 width="100"
+				 bind:tap="handleUpdateServiceStatus"
+				 data-action="{{serviceAction.CANCEL}}"
+				>
+					取消服务
+				</i-button>
+				<i-button
+				 width="100"
+				 wx:if="{{service.status !== ServiceStatus.CANCELED || service.status !== ServiceStatus.OFF_SHELVES}}"
+				 bgColor="#fff"
+				 border
+				 shape="semicircle"
+				 bind:tap="handleUpdateService"
+				>
+					修改服务
+				</i-button>
+				<i-button
+				 width="100"
+				 wx:if="{{service.status === ServiceStatus.PUBLISHED}}"
+				 i-class="i-button"
+				 shape="semicircle"
+				 bind:tap="handleUpdateServiceStatus"
+				 data-action="{{serviceAction.PAUSE}}"
+				>
+					暂停发布
+				</i-button>
+				<i-button
+				 wx:if="{{service.status === ServiceStatus.UNPUBLISHED}}"
+				 shape="semicircle"
+				 bind:tap="handleUpdateServiceStatus"
+				 data-action="{{serviceAction.PUBLISH}}"
+				>
+					发布
+				</i-button>
+			</block>
+			<block wx:else>
+				<i-button
+				 i-class="i-button"
+				 icon="telephone"
+				 bgColor="#fff"
+				 bind:tap="handleChat"
+				>
+					联系对方
+				</i-button>
+				<i-button
+				 wx:if="{{service.type !== serviceType.SEEK}}"
+				 shape="semicircle"
+				 bind:tap="handleOrder"
+				>
+					立即预约
+				</i-button>
+			</block>
+		</view>
+		<i-safe-area area="bottom" />
+	</view>
+</view>
+
