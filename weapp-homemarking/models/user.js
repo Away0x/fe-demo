@@ -1,5 +1,6 @@
 import Http from '../utils/http';
 import Token from './token';
+import { genTestUserSig } from '../lib/tim/GenerateTestUserSig';
 
 class User {
     static async login() {
@@ -10,24 +11,23 @@ class User {
 
     static getUserInfoByLocal() {
         return wx.getStorageSync('userInfo');
-        // return {
-        //     id: 1870,
-        // };
+        // return { id: 1870 };
     }
 
     static async getUserInfo() {
         const userInfo = await Http.request({ url: 'v1/user' });
-        if (userInfo) {
-            return userInfo;
-        } else {
-            return null;
-        }
+        return userInfo || null;
     }
 
     static async getUserSign() {
-        return await Http.request({
-            url: 'v1/user/sign',
-        });
+        // 本地测试时前端生成 sign
+        const user = User.getUserInfoByLocal();
+        if (!user) return {};
+        return { sign: genTestUserSig(user.id.toString()).userSig, user_id: user.id };
+
+        // return await Http.request({
+        //     url: 'v1/user/sign',
+        // });
     }
 
     static async updateUserInfo(data) {

@@ -1,6 +1,7 @@
+import { createStoreBindings } from 'mobx-miniprogram-bindings';
+
 import User from '../../models/user';
-// import { createStoreBindings } from "mobx-miniprogram-bindings";
-// import { timStore } from '../../store/tim';
+import { timStore } from '../../store/tim';
 
 Page({
     data: {
@@ -8,19 +9,17 @@ Page({
         userName: '',
     },
     onLoad: function (options) {
-        // this.storeBindings = createStoreBindings(this, {
-        //     store: timStore,
-        //     actions: { timLogin: 'login' },
-        // })
+        this.storeBindings = createStoreBindings(this, {
+            store: timStore,
+            actions: { timLogin: 'login' },
+        });
     },
 
     onUnload() {
-        // this.storeBindings.destroyStoreBindings()
+        this.storeBindings.destroyStoreBindings();
     },
 
     async handleUserInfo(event) {
-        // 当前项目中 TOKEN 获取不是通过 Wx code, 而是通过订单号获取的 (自己 mock 了一个 token)
-        // - 其他项目里面可以通过 wx.login 得到 code 然后去服务端换取 token
         const res = await wx.getUserProfile({ desc: '完善用户信息' });
 
         wx.showLoading({ title: '正在授权', mask: true });
@@ -38,7 +37,7 @@ Page({
                 content: '登陆失败，请稍后重试',
                 showCancel: false,
             });
-            console.log(e);
+            console.warn(e);
         }
         wx.hideLoading();
     },

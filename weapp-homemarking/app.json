@@ -1,11 +1,12 @@
 {
     "pages": [
-        "pages/login/index",
         "pages/plaza/index",
         "pages/message/index",
         "pages/my/index",
         "pages/publish/index",
-        "pages/service-detail/index"
+        "pages/service-detail/index",
+        "pages/login/index",
+        "pages/conversation/index"
     ],
     "window": {
         "backgroundColor": "#ffffff",

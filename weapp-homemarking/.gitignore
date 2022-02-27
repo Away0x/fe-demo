@@ -1,1 +1,3 @@
 config/api.js
+config/tim.js
+node_modules
