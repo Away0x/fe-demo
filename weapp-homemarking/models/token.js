@@ -18,6 +18,10 @@ class Token {
 
         wx.setStorageSync('token', res.data.data.token);
         return res.data.data.token;
+
+        // const token = 'cce690ca3cb1f834f289d633f95785df';
+        // wx.setStorageSync('token', token);
+        // return token;
     }
 
     static async verifyToken() {

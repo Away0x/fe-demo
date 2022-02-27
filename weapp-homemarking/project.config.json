@@ -44,12 +44,11 @@
         "disableUseStrict": false,
         "minifyWXML": true,
         "showES6CompileOption": false,
-        "useCompilerPlugins": false,
-        "skeletonGenerateFilesWithoutConfirm": true
+        "useCompilerPlugins": false
     },
     "compileType": "miniprogram",
     "libVersion": "2.19.4",
-    "appid": "wx14e730f7c2504312",
+    "appid": "wxb5a6e54acfb812b8",
     "projectname": "homemarking",
     "debugOptions": {
         "hidedInDevtools": []

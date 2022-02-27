@@ -1,0 +1,20 @@
+<view class="container">
+	<view class="open-data">
+		<view class="avatar">
+			<open-data type="userAvatarUrl" />
+		</view>
+		<view class="nickname">
+			<open-data type="userNickName" />
+		</view>
+	</view>
+	<view class="auth-button">
+		<button bindtap="handleUserInfo">授权登陆</button>
+		<button
+		 style="margin-top:30rpx"
+		 type="default"
+		 bind:tap="handleBackHome"
+		>返回首页
+		</button>
+	</view>
+</view>
+
