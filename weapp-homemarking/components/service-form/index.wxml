@@ -1,0 +1,112 @@
+<view class="container">
+	<mp-toptips
+	 msg="{{error}}"
+	 type="error"
+	 show="{{error}}"
+	/>
+	<mp-form
+	 wx:if="{{showForm}}"
+	 id="form"
+	 models="{{formData}}"
+	 rules="{{rules}}"
+	>
+		<mp-cells>
+			<mp-cell
+			 show-error
+			 prop="type"
+			 title="发布类型"
+			>
+				<picker
+				 bindchange="bindTypePickerChange"
+				 range="{{typeList}}"
+				 range-key="name"
+				>
+					<view wx:if="{{typePickerIndex !== null}}">
+						{{ typeList[typePickerIndex].name}}
+					</view>
+					<view wx:else class="picker-placeholder">请选择发布类型</view>
+				</picker>
+			</mp-cell>
+			<mp-cell
+			 show-error
+			 prop="title"
+			 title="标题"
+			>
+				<input
+				 bindinput="bindInputChange"
+				 data-field="title"
+				 value="{{formData.title}}"
+				 placeholder="内容长度不少于 5 个字"
+				/>
+			</mp-cell>
+			<mp-cell
+			 show-error
+			 prop="category_id"
+			 title="所属分类"
+			>
+				<picker
+				 bindchange="bindCategoryChange"
+				 range="{{categoryList}}"
+				 range-key="name"
+				>
+					<view wx:if="{{categoryPickerIndex !== null}}">
+						{{ categoryList[categoryPickerIndex].name}}
+					</view>
+					<view class="picker-placeholder" wx:else>请选择分类</view>
+				</picker>
+			</mp-cell>
+			<mp-cell
+			 show-error
+			 prop="cover_image_id"
+			 title="封面图"
+			>
+				<i-uploader
+				 files="{{files}}"
+				 maxCount="{{1}}"
+				 bind:hidepage="handleHidePage"
+				 bind:uploadsuccess="handleUploadSuccess"
+				/>
+			</mp-cell>
+			<mp-cell
+			 show-error
+			 prop="description"
+			 title="服务描述"
+			>
+				<textarea
+				 class="desc-textarea"
+				 bindinput="bindInputChange"
+				 data-field="description"
+				 value="{{formData.description}}"
+				 placeholder="必填，内容长度不少于 20 个字"
+				/>
+				</mp-cell>
+            <mp-cell wx:if="{{formData.type === serviceTypeEnum.PROVIDE}}" title="提供地点" footer="是否需要用户提供地址信息">
+                <switch checked="{{form.designated_place}}" bindchange="handleSwitchChange" />
+            </mp-cell>
+            <mp-cell show-error prop="begin_date" title="开始日期">
+                <picker mode="date" value="{{formData.begin_date}}" bindchange="bindBeginDateChange">
+                    <view wx:if="{{formData.begin_date}}">{{ formData.begin_date }}</view>
+                    <view class="picker-placeholder" wx:else>服务内容有效期开始日期</view>
+                </picker>
+            </mp-cell>
+            <mp-cell show-error prop="end_date" title="结束日期">
+                <picker mode="date" value="{{formData.end_date}}" bindchange="bindEndDateChange">
+                    <view wx:if="{{formData.end_date}}">{{ formData.end_date }}</view>
+                    <view class="picker-placeholder" wx:else>服务内容有效期结束日期</view>
+                </picker>
+            </mp-cell>
+            <mp-cell show-error prop="price" title="价格">
+                <input bindinput="bindInputChange" data-field="price" type="number" value="{{formData.price}}" placeholder="服务价格，不少于 1" />
+            </mp-cell>
+        </mp-cells>
+        <view class="form-floor">
+            <i-button wx:if="{{!disable}}" size="long" shape="circle" bind:tap="submit">
+                提交审核
+            </i-button>
+            <i-button wx:else size="long" bgColor="#efefef" fontColor="#888888" shape="circle" bind:tap="onDisableButton">
+                {{disableText}}
+            </i-button>
+        </view>
+    </mp-form>
+</view>
+

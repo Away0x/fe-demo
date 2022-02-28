@@ -6,7 +6,12 @@
         "pages/publish/index",
         "pages/service-detail/index",
         "pages/login/index",
-        "pages/conversation/index"
+        "pages/conversation/index",
+        "pages/service-management/index",
+        "pages/order/index",
+        "pages/order-success/index",
+        "pages/my-order/index",
+        "pages/publisher-success/index"
     ],
     "window": {
         "backgroundColor": "#ffffff",
@@ -52,12 +57,19 @@
         "i-tabs": "/components/tabs/index",
         "i-safe-area": "/components/safe-area/index",
         "i-service-preview": "/components/service-preview/index",
+        "i-service-form": "/components/service-form/index",
         "i-show-status": "/components/show-status/index",
         "i-icon": "/components/icon/index",
         "i-avatar": "/components/avatar/index",
         "i-button": "/components/button/index",
         "i-rating-item": "/components/rating-item/index",
-        "i-rating": "/components/rating/index"
+        "i-rating": "/components/rating/index",
+        "mp-form": "weui-miniprogram/form/form",
+        "mp-cells": "weui-miniprogram/cells/cells",
+        "mp-cell": "weui-miniprogram/cell/cell",
+        "mp-uploader": "weui-miniprogram/uploader/uploader",
+        "mp-toptips": "weui-miniprogram/toptips/toptips",
+        "mp-msg": "weui-miniprogram/msg/msg"
     },
     "useExtendedLib": {
         "weui": true

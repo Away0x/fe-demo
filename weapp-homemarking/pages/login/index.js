@@ -29,7 +29,7 @@ Page({
             await User.updateUserInfo(res.userInfo);
             await this.timLogin();
             const eventChannel = this.getOpenerEventChannel();
-            eventChannel.emit('login');
+            eventChannel.emit('login'); // 返回上一页会触发 login 事件
             wx.navigateBack();
         } catch (e) {
             wx.showModal({

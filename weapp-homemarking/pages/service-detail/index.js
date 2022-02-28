@@ -75,6 +75,12 @@ Page({
             wx.navigateTo({
                 url: '/pages/login/index',
                 events: {
+                    /**
+                     * login 页面这样返回, 会触发这个事件
+                     const eventChannel = this.getOpenerEventChannel();
+                     eventChannel.emit('login');
+                     wx.navigateBack();
+                     */
                     login: () => {
                         this._checkRole();
                     },
@@ -118,6 +124,7 @@ Page({
         return content;
     },
 
+    // 加载更多
     async onReachBottom() {
         if (!ratingModel.hasMoreData) {
             return;
