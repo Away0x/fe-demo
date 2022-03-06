@@ -1,0 +1,43 @@
+.container {
+    font-size: 28rpx;
+    padding-bottom: 200rpx;
+}
+
+.address,
+.rating-detail {
+    margin-top: 30rpx;
+    background-color: #ffffff;
+    padding: 30rpx 30rpx;
+}
+
+.address {
+    display: flex;
+    align-items: center;
+}
+
+.address-info {
+    margin-left: 20rpx;
+}
+
+.contact-info {
+    margin-top: 10rpx;
+    color: #888888;
+}
+
+.chat,
+.order-preview,
+.order-info {
+    margin-top: 30rpx;
+}
+
+.action-button {
+    margin-top: 80rpx;
+    text-align: center;
+}
+
+.rating-label {
+    font-weight: bold;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 30rpx;
+}

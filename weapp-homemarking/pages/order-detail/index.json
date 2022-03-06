@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "订单详情",
+    "usingComponents": {
+        "i-consumer-action": "./components/consumer-action/index",
+        "i-publisher-action": "./components/publisher-action/index"
+    }
+}

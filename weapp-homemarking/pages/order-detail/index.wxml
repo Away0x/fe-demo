@@ -1,0 +1,45 @@
+<view class="container">
+	<view class="address" wx:if="{{order.address_snap}}">
+		<i-icon name="map" size="50" />
+		<view class="address-info">
+			<view class="location-info">
+				{{order.address_snap.provinceName}}
+				{{order.address_snap.cityName}}
+				{{order.address_snap.countyName}}
+				{{address.detailInfo}}
+			</view>
+			<view class="contact-info">
+				{{order.address_snap.userName}} {{order.address_snap.telNumber}}
+			</view>
+		</view>
+	</view>
+	<view class="order-preview">
+		<i-order-preview hideTop order="{{order}}" />
+	</view>
+	<view class="chat">
+		<i-detail-chat userInfo="{{order[role===RoleType.PUBLISHER?'consumer':'publisher']}}" bind:chat="handleToChat" />
+	</view>
+	<view class="order-info">
+		<i-order-info order="{{order}}" />
+	</view>
+	<view class="rating-detail" wx:if="{{rating}}">
+		<view class="rating-label">服务评价</view>
+		<i-rating-item rating="{{rating}}" bind:preview="handlePreview" />
+	</view>
+	<view class="action-button">
+		<i-publisher-action
+		 wx:if="{{role=== RoleType.PUBLISHER}}"
+		 order="{{order}}"
+		 bind:update-status="handleUpdateOrderStatus"
+		/>
+		<i-consumer-action
+		 wx:if="{{role=== RoleType.CONSUMER}}"
+		 order="{{order}}"
+		 bind:update-status="handleUpdateOrderStatus"
+		 bind:refund="handleRefund"
+		 bind:rating="handleRating"
+		 bind:pay="handlePay"
+		/>
+	</view>
+</view>
+

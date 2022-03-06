@@ -1,0 +1,4 @@
+.refund,
+.cancel {
+    margin-top: 30rpx;
+}

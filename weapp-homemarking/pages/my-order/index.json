@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "navigationBarTitleText": "我的订单",
+    "usingComponents": {
+        "i-consumer-action": "./components/consumer-action/index",
+        "i-publisher-action": "./components/publisher-action/index"
+    }
 }

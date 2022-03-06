@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+    "backgroundColorBottom": "#ffffff",
+    "navigationBarTitleText": "消息列表",
+    "usingComponents": {
+        "i-conversation-preview": "./components/conversation-preview/index"
+    }
 }

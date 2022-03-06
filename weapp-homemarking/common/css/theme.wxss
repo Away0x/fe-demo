@@ -1,0 +1,11 @@
+.theme-container-bg-color {
+    background-color: #ffffff;
+}
+
+.theme-bg-color {
+    background-color: #f3d066;
+}
+
+.theme-font-color {
+    color: #333333;
+}

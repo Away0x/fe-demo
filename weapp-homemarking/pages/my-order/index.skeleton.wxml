@@ -1,0 +1,194 @@
+<!--
+此文件为开发者工具生成，生成时间: 2022/3/6 下午6:15:36
+使用方法：
+在 /Users/wutong/Desktop/playground/fe-demo/weapp-homemarking/pages/my-order/index.wxml 引入模板
+
+```
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+```
+
+在 /Users/wutong/Desktop/playground/fe-demo/weapp-homemarking/pages/my-order/index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+-->
+<template name="skeleton">
+  <view class="sk-container">
+    <view class="container">
+      <view is="components/tabs/index" hidden="{{hideTabsLoading}}">
+        <view class="tabs-index--container">
+          <view class="tabs-index--tabs">
+            <view class="tabs-index--tab-item">
+              <view class="tabs-index--tab-label sk-transparent sk-text-18-7500-678 sk-text" data-index="0">
+                全部订单
+              </view>
+            </view>
+            <view class="tabs-index--tab-item">
+              <view class="tabs-index--tab-label tabs-index--active-tab sk-transparent sk-text-18-7500-187 sk-text" data-index="1">
+                待同意
+              </view>
+              <view class="tabs-index--divider"></view>
+            </view>
+            <view class="tabs-index--tab-item">
+              <view class="tabs-index--tab-label sk-transparent sk-text-18-7500-342 sk-text" data-index="2">
+                待支付
+              </view>
+            </view>
+            <view class="tabs-index--tab-item">
+              <view class="tabs-index--tab-label sk-transparent sk-text-18-7500-748 sk-text" data-index="3">
+                待确认
+              </view>
+            </view>
+            <view class="tabs-index--tab-item">
+              <view class="tabs-index--tab-label sk-transparent sk-text-18-7500-257 sk-text" data-index="4">
+                待评价
+              </view>
+            </view>
+          </view>
+          <view class="tabs-index--tab-planel">
+            <view>
+              <view class="order-preview" hidden="{{hideOrderLoading}}">
+                <view is="components/order-preview/index">
+                  <view class="preview-index--container">
+                    <view class="preview-index--top">
+                      <view is="components/avatar/index">
+                        <view class="avatar-index--container">
+                          <view class="avatar-index--avatar">
+                            <image class="avatar-index--avatar-image sk-image" style="width: 30px;height: 30px;border-radius: 50%"></image>
+                          </view>
+                          <view class="avatar-index--nickname sk-transparent sk-text-18-7500-132 sk-text" style="font-size: 14px">år.</view>
+                        </view>
+                      </view>
+                      <view class="preview-index--order-status sk-transparent sk-text-18-7500-982 sk-text">待同意</view>
+                    </view>
+                    <view class="preview-index--center">
+                      <view class="preview-index--left">
+                        <image class="preview-index--cover-image sk-image"></image>
+                      </view>
+                      <view class="preview-index--right">
+                        <view class="preview-index--service-name sk-transparent sk-text-18-7500-506 sk-text">专业室内装修设计服务</view>
+                        <view class="preview-index--price">
+                          <text class="preview-index--price-label sk-transparent sk-opacity">￥</text>
+                          <text class="preview-index--price-value sk-transparent sk-text-18-7500-979 sk-text">3999.00</text>
+                        </view>
+                      </view>
+                    </view>
+                    <view is="pages/my-order/components/publisher-action/index">
+                      <view class="index--container">
+                        <view class="index--chat">
+                          <view is="components/button/index">
+                            <label for="imooc">
+                              <view class="button-index--i-button-special sk-transparent" style="color:#333333;">
+                                <view is="components/icon/index" style="margin-right:5px">
+                                  <view class="icon-index--iconfont icon-index--icon-telephone sk-pseudo sk-pseudo-circle" style="font-size:17px;color:#333333;"></view>
+                                </view>联系对方
+                              </view>
+                            </label>
+                          </view>
+                        </view>
+                        <view>
+                          <view is="components/button/index">
+                            <label for="imooc">
+                              <view class="button-index--i-button button-index--shape-semicircle button-index--mini button-index--i-class sk-transparent sk-text-18-7500-677 sk-text" style="background-color:#f3d066;color:#333333;">
+                                去同意
+                              </view>
+                            </label>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class="order-preview" hidden="{{hideOrderLoading}}">
+                <view is="components/order-preview/index">
+                  <view class="preview-index--container">
+                    <view class="preview-index--top">
+                      <view is="components/avatar/index">
+                        <view class="avatar-index--container">
+                          <view class="avatar-index--avatar">
+                            <image class="avatar-index--avatar-image sk-image" style="width: 30px;height: 30px;border-radius: 50%"></image>
+                          </view>
+                          <view class="avatar-index--nickname sk-transparent sk-text-18-7500-921 sk-text" style="font-size: 14px">år.</view>
+                        </view>
+                      </view>
+                      <view class="preview-index--order-status sk-transparent sk-text-18-7500-903 sk-text">待同意</view>
+                    </view>
+                    <view class="preview-index--center">
+                      <view class="preview-index--left">
+                        <image class="preview-index--cover-image sk-image"></image>
+                      </view>
+                      <view class="preview-index--right">
+                        <view class="preview-index--service-name sk-transparent sk-text-18-7500-409 sk-text">专业室内装修设计服务</view>
+                        <view class="preview-index--price">
+                          <text class="preview-index--price-label sk-transparent sk-opacity">￥</text>
+                          <text class="preview-index--price-value sk-transparent sk-text-18-7500-915 sk-text">3999.00</text>
+                        </view>
+                      </view>
+                    </view>
+                    <view is="pages/my-order/components/publisher-action/index">
+                      <view class="index--container">
+                        <view class="index--chat">
+                          <view is="components/button/index">
+                            <label for="imooc">
+                              <view class="button-index--i-button-special sk-transparent" style="color:#333333;">
+                                <view is="components/icon/index" style="margin-right:5px">
+                                  <view class="icon-index--iconfont icon-index--icon-telephone sk-pseudo sk-pseudo-circle" style="font-size:17px;color:#333333;"></view>
+                                </view>联系对方
+                              </view>
+                            </label>
+                          </view>
+                        </view>
+                        <view>
+                          <view is="components/button/index">
+                            <label for="imooc">
+                              <view class="button-index--i-button button-index--shape-semicircle button-index--mini button-index--i-class sk-transparent sk-text-18-7500-928 sk-text" style="background-color:#f3d066;color:#333333;">
+                                去同意
+                              </view>
+                            </label>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class="order-preview" hidden="{{hideOrderLoading}}">
+                <view is="components/order-preview/index">
+                  <view class="preview-index--container">
+                    <view class="preview-index--top">
+                      <view is="components/avatar/index">
+                        <view class="avatar-index--container">
+                          <view class="avatar-index--avatar">
+                            <image class="avatar-index--avatar-image sk-image" style="width: 30px;height: 30px;border-radius: 50%"></image>
+                          </view>
+                          <view class="avatar-index--nickname sk-transparent sk-text-18-7500-48 sk-text" style="font-size: 14px">år.</view>
+                        </view>
+                      </view>
+                      <view class="preview-index--order-status sk-transparent sk-text-18-7500-43 sk-text">待同意</view>
+                    </view>
+                    <view class="preview-index--center">
+                      <view class="preview-index--left">
+                        <image class="preview-index--cover-image sk-image"></image>
+                      </view>
+                      <view class="preview-index--right">
+                        <view class="preview-index--service-name sk-transparent sk-text-18-7500-159 sk-text">专业室内装修设计服务</view>
+                        <view class="preview-index--price">
+                          <text class="preview-index--price-label sk-transparent sk-opacity">￥</text>
+                          <text class="preview-index--price-value sk-transparent sk-text-18-7500-45 sk-text">3999.00</text>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

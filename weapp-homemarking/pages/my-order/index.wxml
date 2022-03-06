@@ -1,2 +1,47 @@
-<!--pages/my-order/index.wxml-->
-<text>pages/my-order/index.wxml</text>
+<import src="index.skeleton.wxml" />
+<template
+ is="skeleton"
+ wx:if="{{loading.hideTabsLoading === loading.hideOrderLoading }}"
+ data="{{...loading}}"
+/>
+<wxs src="/common/wxs/order-status.wxs" module="statusConvert" />
+<view class="container">
+	<i-tabs
+	 tabs="{{tabs}}"
+	 active="{{currentTabIndex}}"
+	 bind:change="handleTabChange"
+	 bind:doubleclicktab="handleScrollToTop"
+	 data-skeleton-hide="hideTabsLoading"
+	>
+		<view slot="panel">
+			<view
+			 class="order-preview"
+			 data-skeleton-hide="hideOrderLoading"
+			 wx:for="{{orderList}}"
+			 wx:key="index"
+			>
+				<i-order-preview role="{{role}}" order="{{item}}">
+					<i-consumer-action
+					 wx:if="{{role === roleType.CONSUMER}}"
+					 order="{{item}}"
+					 bind:nav-detail="handleNavDetail"
+					 bind:refund="handleRefund"
+					 bind:chat="handleChat"
+					/>
+					<i-publisher-action
+					 wx:if="{{role===roleType.PUBLISHER}}"
+					 order="{{item}}"
+					 bind:nav-detail="handleNavDetail"
+					 bind:chat="handleChat"
+					/>
+				</i-order-preview>
+			</view>
+			<i-show-status
+			 show="{{!orderList.length}}"
+			 top="220"
+			 content="暂时还没有任何订单"
+			/>
+		</view>
+	</i-tabs>
+</view>
+

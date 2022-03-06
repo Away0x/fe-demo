@@ -1,1 +1,18 @@
-/* pages/my/index.wxss */
+.container {
+    padding-bottom: 200rpx;
+}
+
+.header {
+    box-sizing: border-box;
+    height: 240rpx;
+    background-color: #f3d066;
+    padding: 30rpx 30rpx;
+}
+
+.main {
+    padding: 0rpx 30rpx;
+}
+
+.grid-container {
+    margin-top: 30rpx;
+}

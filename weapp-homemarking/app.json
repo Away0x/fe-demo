@@ -11,7 +11,14 @@
         "pages/order/index",
         "pages/order-success/index",
         "pages/my-order/index",
-        "pages/publisher-success/index"
+        "pages/publisher-success/index",
+        "pages/order-detail/index",
+        "pages/pay-success/index",
+        "pages/rating/index",
+        "pages/refund/index",
+        "pages/refund-detail/index",
+        "pages/refund-list/index",
+        "pages/my-service/index"
     ],
     "window": {
         "backgroundColor": "#ffffff",
@@ -65,6 +72,11 @@
         "i-rating-item": "/components/rating-item/index",
         "i-rating": "/components/rating/index",
         "i-uploader": "/components/image-uploader/index",
+        "i-badge": "/components/badge/index",
+        "i-grid": "/components/grid/index",
+        "i-grid-item": "/components/grid-item/index",
+        "i-order-preview": "/components/order-preview/index",
+        "i-refund-info": "/components/refund-info/index",
         "mp-form": "weui-miniprogram/form/form",
         "mp-cells": "weui-miniprogram/cells/cells",
         "mp-cell": "weui-miniprogram/cell/cell",

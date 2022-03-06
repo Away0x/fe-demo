@@ -1,2 +1,22 @@
-<!--pages/conversation/index.wxml-->
-<text>pages/conversation/index.wxml</text>
+<view class="container">
+	<i-conversation-window
+	 wx:if="{{sdkReady}}"
+	 service="{{service}}"
+	 targetUserId="{{targetUserId}}"
+	 bind:sendmessage="handleSendMessage"
+	/>
+	<i-show-status
+	 wx:else
+	 top="500"
+	 show
+	 content="会话加载失败~~"
+	>
+		<i-button
+		 fontColor="#333333"
+		 shape="semicircle"
+		 bind:tap="handleToLogin"
+		>点击刷新
+		</i-button>
+	</i-show-status>
+</view>
+

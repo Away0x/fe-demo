@@ -1,1 +1,9 @@
-/* pages/my-order/index.wxss */
+@import './index.skeleton.wxss';
+
+.container {
+    height: 100%;
+}
+
+.order-preview {
+    margin-bottom: 30rpx;
+}

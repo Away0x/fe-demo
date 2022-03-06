@@ -1,2 +1,38 @@
-<!--pages/message/index.wxml-->
-<text>pages/message/index.wxml</text>
+<view class="container">
+	<block wx:if="{{sdkReady}}">
+		<block wx:if="{{!conversationList.length}}">
+			<i-show-status
+			 top="500"
+			 show
+			 content="暂无会话"
+			/>
+		</block>
+		<block wx:else>
+			<i-conversation-preview
+			 wx:for="{{conversationList}}"
+			 wx:key="index"
+			 user="{{item.userProfile}}"
+			 lastMessage="{{item.lastMessage}}"
+			 unreadCount="{{item.unreadCount}}"
+			 data-item="{{item}}"
+			 bind:tap="handleTapConversation"
+			/>
+		</block>
+	</block>
+	<block wx:else>
+		<i-show-status
+		 top="500"
+		 show
+		 content="会话加载失败~~"
+		>
+			<i-button
+			 fontColor="#333333"
+			 shape="semicircle"
+			 bind:tap="handleToLogin"
+			>
+				点击刷新
+			</i-button>
+		</i-show-status>
+	</block>
+</view>
+

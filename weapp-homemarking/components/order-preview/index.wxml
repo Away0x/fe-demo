@@ -1,0 +1,26 @@
+<wxs src="/common/wxs/order-status.wxs" module="statusConvert" />
+<view class="container">
+	<view class="top" wx:if="{{!hideTop}}">
+		<i-avatar
+		 shape="circle"
+		 size="60"
+		 src="{{order[role===RoleType.PUBLISHER?'consumer':'publisher'].avatar}}"
+		 text="{{order[role === RoleType.PUBLISHER ? 'consumer' : 'publisher'].nickname}}"
+		/>
+		<view class="order-status">{{statusConvert.convert(order.status)}}</view>
+	</view>
+	<view class="center" bind:tap="handleNavToServiceDetail">
+		<view class="left">
+			<image class="cover-image" src="{{order.service_snap.cover_image.path}}" />
+		</view>
+		<view class="right">
+			<view class="service-name">{{order.service_snap.title}}</view>
+			<view class="price">
+				<text class="price-label">￥</text>
+				<text class="price-value">{{order.price}}</text>
+			</view>
+		</view>
+	</view>
+	<slot/>
+</view>
+
