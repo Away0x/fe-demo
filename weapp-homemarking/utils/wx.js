@@ -9,6 +9,7 @@ function wxToPromise(method, options = {}) {
 }
 
 /**
+ * 设置 tabbar 小红点
  * @param unreadCount
  * @returns {void}
  */
