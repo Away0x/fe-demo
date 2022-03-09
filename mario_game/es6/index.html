@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <script src="dist/index.js"></script>
+
+
+  <canvas id="pie" width="200" height="200"></canvas>
+  <canvas id="run" width="200" height="200"></canvas>
+  <canvas id="tree" width="600" height="300"></canvas>
+  <script>
+  /* 饼状图 */
+  var results = [
+    {name: "Satisfied",   count: 1043, color: "lightblue"},
+    {name: "Neutral",     count: 563,  color: "lightgreen"},
+    {name: "Unsatisfied", count: 510,  color: "pink"},
+    {name: "No comment",  count: 175,  color: "silver"}
+  ];
+
+  var cxPie = document.querySelector('#pie').getContext('2d')
+  var total = results.reduce(function (sum, choice) {
+    return sum + choice.count
+  }, 0)
+
+  var currentAngle = -0.5 * Math.PI
+  results.forEach(function (result) {
+    var sliceAngle = (result.count / total) * 2 * Math.PI
+    cxPie.beginPath()
+    cxPie.arc(100, 100, 100, currentAngle, currentAngle + sliceAngle)
+    currentAngle += sliceAngle
+    cxPie.lineTo(100, 100)
+    cxPie.fillStyle = result.color
+    cxPie.fill()
+  })
+
+  /* 奔跑人 */
+  var cxRun = document.querySelector('#run').getContext('2d')
+  var img = document.createElement('img')
+  img.src = './src/draw/img/player.png'
+  var spriteW = 24, spriteH = 30
+  img.addEventListener('load', function () {
+    var cycle = 0
+    setInterval(function () {
+      cxRun.clearRect(0, 0, spriteW, spriteH)
+      cxRun.drawImage(img, cycle*spriteW, 0, spriteW, spriteH, 0, 0, spriteW, spriteH)
+      cycle = (cycle + 1) % 8
+    }, 120)
+  })
+
+  /* 分形几何树 */
+  var cxTree = document.querySelector('#tree').getContext('2d')
+  function branch(length, angle, scale) {
+    cxTree.fillRect(0, 0, 1, length)
+    if (length < 8) return
+    cxTree.save()
+    cxTree.translate(0, length)
+    cxTree.rotate(-angle)
+    branch(length*scale, angle, scale)
+    cxTree.rotate(2*angle)
+    branch(length*scale, angle, scale)
+    cxTree.restore()
+  }
+  cxTree.translate(300, 0)
+  branch(60, 0.5, 0.8)
+  </script>
+</body>
+</html>
