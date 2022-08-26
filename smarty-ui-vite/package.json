@@ -7,11 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "test": "vitest",
+    "test:run": "vitest run",
     "lint": "eslint --fix --ext .ts,.vue src",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -41,6 +43,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.4.0",
     "happy-dom": "^6.0.4",
+    "husky": "^8.0.1",
     "prettier": "^2.7.1",
     "vite": "^3.0.5",
     "vitepress": "0.22.4",
