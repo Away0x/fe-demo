@@ -20,8 +20,9 @@ export default defineConfig({
             },
           },
         },
-        minify: false,
-        cssCodeSplit: true, // 决定在编译的时候是否要独立输出 css
+        minify: 'terser', // boolean | 'terser' | 'esbuild'
+        sourcemap: true, // 输出单独 source文件
+        cssCodeSplit: true,
         lib: {
           entry: "./src/entry.ts",
           name: "SmartyUI",
