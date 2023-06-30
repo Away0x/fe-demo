@@ -1,0 +1,27 @@
+{
+  "name": "nuxt-serverless-rating",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18",
+    "@vercel/node": "^2.15.2",
+    "ioredis": "^5.3.2",
+    "nuxt": "^3.5.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "daisyui": "^2.51.6",
+    "postcss": "^8.4.23",
+    "pug": "^3.0.2",
+    "tailwindcss": "^3.3.2"
+  },
+  "type": "module"
+}
